@@ -2,7 +2,7 @@
 <html>
 <head> 
     <title>FlickTick</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
@@ -41,7 +41,6 @@
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
     </div>
 
     <div id="enterForm">
