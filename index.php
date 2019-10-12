@@ -2,7 +2,10 @@
 <html>
 
 <head>
-    <title>test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flicktick</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -29,7 +32,7 @@
         <!--Navbar-->
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
             <div class="container">
-                <a class="navbar-brand" href="#"><strong>FlickTick</strong></a>
+                <a class="navbar-brand" href=""><strong>FlickTick</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
                     aria-expanded="false" aria-label="Toggle navigation">

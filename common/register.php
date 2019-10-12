@@ -2,8 +2,11 @@
 <html>
 
 <head>
-    <title>test</title>
-    <link rel="stylesheet" type="text/css" href="../css/register.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flicktick - Register</title>
+    <link rel="stylesheet" type="text/css" href="../css/register_login.css" />
     <script type="text/javascript" src="../js/register.js"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -30,7 +33,7 @@
         <!-- Navbar -->
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
             <div class="container">
-                <a class="navbar-brand" href="#"><strong>FlickTick</strong></a>
+                <a class="navbar-brand" href="../index.php"><strong>FlickTick</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="common/movie_view.html">Movies</a>
@@ -75,35 +78,41 @@
                         <br><br>
                         <div class="card wow fadeInRight" data-wow-delay="0.3s">
                             <div class="card-body">
-                                <!--Header-->
-                                <div class="text-center">
-                                    <h3 class="black-text"> Register </h3>
-                                    <hr class="hr-light">
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-user prefix black-text active"></i>
-                                    <input type="text" id="form3" class="black-text form-control">
-                                    <label for="form3" class="active">Your name</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-envelope prefix black-text active"></i>
-                                    <input type="email" id="form2" class="black-text form-control">
-                                    <label for="form2" class="active">Your email</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-lock prefix black-text active"></i>
-                                    <input type="password" id="form4" class="black-text form-control">
-                                    <label for="form4">Your password</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-lock prefix black-text active"></i>
-                                    <input type="password" id="form4" class="black-text form-control">
-                                    <label for="form5">Confirm password</label>
-                                </div>
+                                    <!--Header-->
+                                    <div class="text-center">
+                                        <h3 class="black-text"> Register </h3>
+                                        <hr class="hr-light">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-user prefix black-text active"></i>
+                                        <input type="text" id="form3" class="black-text form-control">
+                                        <label for="form3" class="active">Your name</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-envelope prefix black-text active"></i>
+                                        <input type="email" id="form2" class="black-text form-control">
+                                        <label for="form2" class="active">Your email</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-lock prefix black-text active"></i>
+                                        <input type="password" id="form4" class="black-text form-control">
+                                        <label for="form4">Your password</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-lock prefix black-text active"></i>
+                                        <input type="password" id="form4" class="black-text form-control">
+                                        <label for="form5">Confirm password</label>
+                                    </div>
                                 <div id="message">
-                                    <div id="weak" style="display: inline-block; width: 15%; height: 5%;background-color: #ff6961;"></div>
-                                    <div id="medium" style="display: inline-block; width: 15%; height: 5%;background-color: grey;"></div>
-                                    <div id="strong" style="display: inline-block; width: 15%; height: 5%;background-color: grey;"></div>
+                                    <div id="weak"
+                                        style="display: inline-block; width: 15%; height: 5%;background-color: #ff6961;">
+                                    </div>
+                                    <div id="medium"
+                                        style="display: inline-block; width: 15%; height: 5%;background-color: grey;">
+                                    </div>
+                                    <div id="strong"
+                                        style="display: inline-block; width: 15%; height: 5%;background-color: grey;">
+                                    </div>
                                 </div>
                                 <div class="text-center mt-4">
                                     <button class="btn btn-indigo">Sign up</button>
