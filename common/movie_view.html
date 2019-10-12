@@ -5,26 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link type="text/css" rel="stylesheet" href="../css/movie_view.css">
     <link href="https://fonts.googleapis.com/css?family=Lexend+Mega&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>Document</title>
 </head>
 
 <body>
 
-    <div style="display: block;">
+    <header>
+        <div class="nav_container">
+            <h1 style="color: black; font-family: 'Lexend Mega', sans-serif;" class="home">
+                FLICKS
+            </h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li><a href="">Genre</a></li>
+                    <li><a href="">Genre</a></li>
+                    <li><a href="">Genre</a></li>
+                    <li><a href="">Genre</a></li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+        </div>
+    </header>
 
-        <h1 style="color: white; font-family: 'Lexend Mega', sans-serif;"> &emsp; FLICKS </h1>
+    <div class="main_container" style="display: block;">
 
         <div class="container">
             <div class="card">
-                <img src="../img/bambi.jpg">
-                <div class="card__head">Bambi (1942)</div>
+                <img src="../img/animation.png">
             </div>
             <div class="card">
-                <img src="../img/3_idiots.jpg">
-                <div class="card__head">3 Idiots (2009)</div>
+                <img src="../img/bambi.jpg">
+                <div class="card__head">Bambi (1942)</div>
+                <div class="card__info">
+                    <h2>Bambi (info)</h2>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../img/ooops_noah_is_gone.jpg">
+                <div class="card__head">Ooops! Noah is Gone... (2015)</div>
             </div>
             <div class="card">
                 <img src="../img/hauru_no_ugoku_shiro_studio_ghibli.jpg">
@@ -33,19 +58,6 @@
             <div class="card">
                 <img src="../img/kung_fu_panda_3_panda.jpg">
                 <div class="card__head">Kung Fu Panda 3 (2016)</div>
-            </div>
-            <div class="card">
-                <img src="../img/maze_runner_the_scorch_trials.jpg">
-                <div class="card__head">Maze Runner: The Scorch Trials (2015)</div>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="container">
-            <div class="card">
-                <img src="../img/ooops_noah_is_gone.jpg">
-                <div class="card__head">Ooops! Noah is Gone... (2015)</div>
             </div>
             <div class="card">
                 <img src="../img/rio_2.jpg">
@@ -62,6 +74,34 @@
             <div class="card">
                 <img src="../img/frankenweenie.jpg">
                 <div class="card__head">Frankenweenie (2012)</div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="container">
+            <div class="card">
+                <img src="../img/drama.png">
+            </div>
+            <div class="card">
+                <img src="../img/maze_runner_the_scorch_trials.jpg">
+                <div class="card__head">Maze Runner: The Scorch Trials (2015)</div>
+            </div>
+            <div class="card">
+                <img src="../img/3_idiots.jpg">
+                <div class="card__head">3 Idiots (2009)</div>
+            </div>
+            <div class="card">
+                <img src="../img/joker.jpg">
+                <div class="card__head">Joker (2019)</div>
+            </div>
+            <div class="card">
+                <img src="../img/the_revenant.jpg">
+                <div class="card__head">The Revenant (2015)</div>
+            </div>
+            <div class="card">
+                <img src="../img/the_wolf_of_wall_street.jpg">
+                <div class="card__head">The Wolf of Wall Street (2013)</div>
             </div>
         </div>
     </div>
