@@ -9,7 +9,7 @@ function validate() {
 
 function passCheckF() {
 
-    var pass = document.getElementById('uPass').value;
+    var pass = document.getElementById('form4').value;
     var pCheck = passCheck.test(pass);
 
     if (pCheck) {

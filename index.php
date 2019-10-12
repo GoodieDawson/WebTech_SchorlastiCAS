@@ -46,9 +46,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="common/movie_view.html">Movies</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
-                        </li>
                     </ul>
                     <form class="form-inline">
                         <div class="md-form my-0">

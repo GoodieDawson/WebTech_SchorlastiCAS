@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flicktick - Login</title>
-    <link rel="stylesheet" type="text/css" href="../css/register_login.css" />
-    <script type="text/javascript" src="../js/register.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <script type="text/javascript" src="../js/login.js"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -45,10 +45,7 @@
                             <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="common/movie_view.html">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="movie_view.html">Movies</a>
                         </li>
                     </ul>
                     <form class="form-inline">
@@ -97,7 +94,7 @@
                                     <div id="strong" style="display: inline-block; width: 15%; height: 5%;background-color: grey;"></div>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <button class="btn btn-indigo">Login</button>
+                                    <button class="btn btn-indigo" onclick="validate()">Login</button>
                                     <hr class="hr-light mb-3 mt-4">
                                     <div class="inline-ul text-center">
                                         <a class="p-2 m-2 tw-ic">
