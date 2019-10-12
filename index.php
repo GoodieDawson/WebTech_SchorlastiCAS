@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>FlickTick</title>
+    <title>test</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -24,9 +24,10 @@
 </head>
 
 <body>
+
     <header>
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
             <div class="container">
                 <a class="navbar-brand" href="#"><strong>FlickTick</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -56,40 +57,26 @@
         </nav>
     </header>
 
-    <div id="container">
-        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel"
-            style="z-index: 1; position: absolute;">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100 center-fit" src="img/bambi.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 center-fit" src="img/3_idiots.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 center-fit" src="img/hauru_no_ugoku_shiro_studio_ghibli.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 center-fit" src="img/kung_fu_panda_3_panda.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 center-fit" src="img/maze_runner_the_scorch_trials.jpg">
-                </div>
-            </div>
-        </div>
+    <div>
+        <ul class="slideshow">
+            <li> <span>Slide One</span> </li>
+            <li> <span>Slide Two</span> </li>
+            <li> <span>Slide Three</span> </li>
+            <li> <span>Slide Four</span> </li>
+        </ul>
+    </div>
 
         <div id="middleman" style="z-index: 3; position: absolute;">
         </div>
 
-        <div id="enterForm" style="z-index: 3; position: absolute;">
-            <h1 id="welcomeMess"> Welcome to FlickTick </h1>
-            <hr id="dash" class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
-            <p id="slogan">Your quick trick to seeing that new sick pic</p>
-            <form method="POST" action="index.php">
-                <input type="button" class="buttons" onClick="location.href='common/login.php'" value="Login">
-                <input type="button" class="buttons" onClick="location.href='common/register.php'" value="Register">
-            </form>
-        </div>
+    <div id="enterForm" style="z-index: 3; position: absolute;">
+        <h1 id="welcomeMess"> Welcome to FlickTick </h1>
+        <hr id="dash" class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+        <p id="slogan">Your quick trick to seeing that new sick pic</p>
+        <form method="POST" action="index.php">
+            <input type="button" class="buttons" onClick="location.href='common/login.php'" value="Login">
+            <input type="button" class="buttons" onClick="location.href='common/register.php'" value="Register">
+        </form>
     </div>
 
 </body>
