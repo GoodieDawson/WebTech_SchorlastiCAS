@@ -1,98 +1,118 @@
-<!Doctype html>
-<html >
+<!DOCTYPE html>
+<html>
 <head>
-    <title> <title>FlickTick</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
-    <link rel="stylesheet" type ="text/css" href="../css/register.css"/>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    
+  <title>test</title>
+    <link rel = "stylesheet" type = "text/css" href = "../css/register.css"/>
+    <script type="text/javascript" src="../js/register.js" ></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
 </head>
-<body style = "background-image:url(https://images.unsplash.com/photo-1502847427791-d0194ec4cff4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80); height:100px; ">  
 
-<div class="container">
-    <div class="row">
-        
-    <br><br><br><br><br>
-
-       <h2 style= "color:blanchedalmond; text-align:center" class="col-sm-offset-3 col-sm-6">REGISTER <br> <br></h3>
-      
-
-    </div class="row">
-        <div class="col-sm-offset-1 col-sm-2">
-        </div>
-        <div class="col-sm-6">
-            <form action="r" method="post" accept-charset="utf-8" class="form" role="form">
-                <div class="row">
-                    <div class="col-xs-6 col-md-6">
-                        <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name"  />                        </div>
-                    <div class="col-xs-6 col-md-6">
-                        <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name"  />                        </div>
-                </div>
-                <br>
-                <input type="text" name="email" value="" class="form-control input-lg" placeholder="Your Email"  />
-                <br>
-                <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  />
-                <br>
-                <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password"  />
-                    
-                <BR> <label style= color:blanchedalmond;>BIRTH DATE</label>
-            
-                <br>
-                    <div class="row">
-                        <div class="col-xs-4 col-md-4">
-                            <select name="month" class = "form-control input-lg">
-                                <option value="01">Jan</option><option value="02">Feb</option><option value="03">Mar</option>
-                                <option value="04">Apr</option><option value="05">May</option><option value="06">Jun</option>
-                                <option value="07">Jul</option><option value="08">Aug</option><option value="09">Sep</option>
-                                <option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>
-                            </select>
-                            <br>
+<body style="background-image: url(../img/road_marking_bridge_123398_1280x720.jpg); background-repeat: no-repeat; background-size: cover">
+<header>
+          <!-- Navbar -->
+          <nav id= "navbar" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+              <a class="navbar-brand" href="#"><strong>FlickTick</strong></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="common/movie_view.html">Movies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                  </li>
+                </ul>
+                <form class="form-inline">
+                  <div class="md-form my-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </nav>  
+          <div class="align-items-center">
+              <!-- Content -->
+              <div class="container">
+                <!--Grid row-->
+                <div class="row mt-5">
+                  <!--Grid column-->
+                  <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+                      <br> <br>
+                    <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">SIGN UP RIGHT NOW! </h1>
+                    <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                    <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">Please sign up right now to experience FlickTick at it's best.</h6>
+                    <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Learn more</a>
+                  </div>
+                  <div class="col-md-6 col-xl-5 mb-4">
+<br><br>
+                  <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                      <div class="card-body">
+                        <!--Header-->
+                        <div class="text-center">
+                          <h3 class="black-text"> Register :</h3>
+                          <hr class="hr-light">
                         </div>
-                        <div class="col-xs-4 col-md-4">
-                            <select name="day" class = "form-control input-lg">
-                                <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-                                <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
-                                <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
-                                <option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option>
-                                <option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="21">21</option>
-                                <option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option>
-                                <option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option>
-                                <option value="30">30</option><option value="31">31</option>
-                            </select>                        
+                        <div class="md-form">
+                          <i class="fas fa-user prefix black-text active"></i>
+                          <input type="text" id="form3" class="black-text form-control">
+                          <label for="form3" class="active">Your name</label>
                         </div>
-                  
-
-                        <div class="col-xs-4 col-md-4">
-                            <select name="year" class = "form-control input-lg">
-                                <option value="1997">1997</option> <option value="1998">1998</option> <option value="1999">1999</option> <option value="2000">2000</option>
-                                <option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option>
-                                <option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option>
-                                <option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option>
-                                <option value="2013">2013</option><option value="2014">2014</option> <option value="2015">2015</option> <option value="2016">2016</option>
-                                <option value="2017">2017</option> <option value="2018">2018</option> <option value="2019">2019</option>
-                            </select>
+                        <div class="md-form">
+                          <i class="fas fa-envelope prefix black-text active"></i>
+                          <input type="email" id="form2" class="black-text form-control">
+                          <label for="form2" class="active">Your email</label>
                         </div>
-                        <br>
+                        <div class="md-form">
+                          <i class="fas fa-lock prefix black-text active"></i>
+                          <input type="password" id="form4" class="black-text form-control">
+                          <label for="form4">Your password</label>
+                        </div>
+                        <div class="text-center mt-4">
+                          <button class="btn btn-indigo">Sign up</button>
+                          <hr class="hr-light mb-3 mt-4">
+                          <div class="inline-ul text-center">
+                            <a class="p-2 m-2 tw-ic">
+                              <i class="fab fa-twitter black-text"></i>
+                            </a>
+                            &nbsp;
+                            <a class="p-2 m-2 li-ic">
+                              <i class="fab fa-linkedin-in black-text"> </i>
+                            </a>
+                           
+                            </div>
+                        </div>
+                      </div>
                     </div>
-                    <label style= color:blanchedalmond;>GENDER : </label>
-                    &nbsp; <label style= color:blanchedalmond; class="radio-inline">
-                        <input  type="radio" name="gender" value="M" id=male />Male
-                    </label>
-                    &nbsp; <label style= color:blanchedalmond; class="radio-inline">
-                        <input type="radio" name="gender" value="F" id=female />Female
-                    </label>
-                    <br />
-
-                    <BR>
-                <span style= color:blanchedalmond; class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
-                <BR>
-                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" name="cbuttton" style ="background-color:black;color:white;width:500px;height:50px;border" >CREATE ACCOUNT</button>
-            </form>          
-        </div>
-      </div>
-    </div>
-</div>
+                    <!--/.Form-->
+                  </div>
+                  <!--Grid column-->
+                </div>
+                <!--Grid row-->
+              </div>
+              <!-- Content -->
+            </div>
+            <!-- Mask & flexbox options-->
+          </div>
+          <!-- Full Page Intro -->
+</header>
 </body>
 </html>
