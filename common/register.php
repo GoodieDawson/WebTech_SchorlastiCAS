@@ -95,6 +95,11 @@
                                     <input type="password" id="form4" class="black-text form-control">
                                     <label for="form4">Your password</label>
                                 </div>
+                                <div class="md-form">
+                                    <i class="fas fa-lock prefix black-text active"></i>
+                                    <input type="password" id="form4" class="black-text form-control">
+                                    <label for="form5">Confirm password</label>
+                                </div>
                                 <div id="message">
                                     <div id="weak" style="display: inline-block; width: 15%; height: 5%;background-color: #ff6961;"></div>
                                     <div id="medium" style="display: inline-block; width: 15%; height: 5%;background-color: grey;"></div>
