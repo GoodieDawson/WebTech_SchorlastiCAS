@@ -1,6 +1,6 @@
-body {
-    margin: 0;
-    padding: 0;
+#main {
+    width: 100%;
+    height: 100%;
 }
 
 .center-fit {
@@ -10,13 +10,24 @@ body {
 }
 
 #enterForm {
-    left: 43%;
+    text-align: center;
+    left: 38%;
     top: 50%;
+}
+
+#welcomeMess {
+    color: white;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#slogan {
+    color: white;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 .buttons {
     background-color: Transparent;
     color: white;
     border: 2px solid white;
-    /* Green */
+    border-radius: 2px;
 }
