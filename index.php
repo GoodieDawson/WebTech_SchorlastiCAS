@@ -37,9 +37,10 @@
 
     <div id="enterForm" style="z-index: 2; position: absolute;">
     <h1 id="welcomeMess"> Welcome to FlickTick </h1>
+    <p id="slogan">Your quick trick to seeing that new sick pic</p>
     <form method="POST" action="index.php">
         <input type="button" class="buttons" onClick="location.href='common/login.php'" value="Login">
-        <input type="button" class="buttons" onClick="location.href='common/register.php'" value="Login">
+        <input type="button" class="buttons" onClick="location.href='common/register.php'" value="Register">
     </form>
     </div>
 </div>
