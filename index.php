@@ -36,10 +36,10 @@
     </div>
 
     <div id="enterForm" style="z-index: 2; position: absolute;">
-    <span> Welcome to FlickTick
+    <h1 id="welcomeMess"> Welcome to FlickTick </h1>
     <form>
-        <button type="submit" class="buttons">Click me to Login</button>
-        <button type="submit" class="buttons">Click me to Register</button>
+        <button type="submit" class="buttons" >Login</button>
+        <button type="submit" class="buttons"> Register</button>
     </form>
     </div>
 </div>
