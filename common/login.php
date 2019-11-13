@@ -28,7 +28,7 @@
 </head>
 
 <body
-    style="background-image: url(../img/road_marking_bridge_123398_1280x720.jpg); background-repeat: no-repeat; background-size: cover">
+    style="background-image: url(../img/Backgrounds/road_marking_bridge_123398_1280x720.jpg); background-repeat: no-repeat; background-size: cover">
     <header>
         <!-- Navbar -->
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -45,7 +45,7 @@
                             <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="movie_view.html">Movies</a>
+                            <a class="nav-link" href="movie_view.php">Movies</a>
                         </li>
                     </ul>
                     <form class="form-inline">

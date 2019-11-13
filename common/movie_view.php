@@ -40,7 +40,23 @@
             <div class="card">
                 <img src="../img/animation.png">
             </div>
-            <div class="card">
+            <?php
+
+                require_once("../db/movie.php");
+
+                $movie = new Movie();
+                $result = $movie->all_movies_by_genre("Animation");
+                
+                if ($result->num_rows > 0) {
+
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div class="card"> <a href=""> <img src="'.$row["Movie_Cover"].'"> </a> <div class="card__head">'.$row["Movie_Title"].'</div> </div>';
+                    }
+
+                }
+
+            ?>
+            <!-- <div class="card">
                 <a href=""><img src="../img/bambi.jpg"></a>
                 <div class="card__head">Bambi (1942)</div>
             </div>
@@ -71,7 +87,7 @@
             <div class="card">
                 <a><img src="../img/frankenweenie.jpg"></a>
                 <div class="card__head">Frankenweenie (2012)</div>
-            </div>
+            </div> -->
         </div>
 
         <br>
@@ -81,7 +97,7 @@
                 <img src="../img/drama.png">
             </div>
             <div class="card">
-                <a><img src="../img/maze_runner_the_scorch_trials.jpg"></a>
+                <a href=""><img src="../img/maze_runner_the_scorch_trials.jpg"></a>
                 <div class="card__head">Maze Runner: The Scorch Trials (2015)</div>
             </div>
             <div class="card">

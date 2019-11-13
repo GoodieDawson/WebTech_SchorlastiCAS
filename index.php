@@ -44,7 +44,7 @@
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="common/movie_view.html">Movies</a>
+                            <a class="nav-link" href="common/movie_view.php">Movies</a>
                         </li>
                     </ul>
                     <form class="form-inline">
