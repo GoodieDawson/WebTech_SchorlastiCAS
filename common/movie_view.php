@@ -56,38 +56,6 @@
                 }
 
             ?>
-            <!-- <div class="card">
-                <a href=""><img src="../img/bambi.jpg"></a>
-                <div class="card__head">Bambi (1942)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/ooops_noah_is_gone.jpg"></a>
-                <div class="card__head">Ooops! Noah is Gone... (2015)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/hauru_no_ugoku_shiro_studio_ghibli.jpg"></a>
-                <div class="card__head">Howl's Moving Castle (2004)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/kung_fu_panda_3_panda.jpg"></a>
-                <div class="card__head">Kung Fu Panda 3 (2016)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/rio_2.jpg"></a>
-                <div class="card__head">Rio 2 (2014)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/song_of_the_sea.jpg"></a>
-                <div class="card__head">Song of the Sea (2014)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/the_lion_king.jpg"></a>
-                <div class="card__head">The Lion King (1994)</div>
-            </div>
-            <div class="card">
-                <a><img src="../img/frankenweenie.jpg"></a>
-                <div class="card__head">Frankenweenie (2012)</div>
-            </div> -->
         </div>
 
         <br>
@@ -96,26 +64,22 @@
             <div class="card">
                 <img src="../img/drama.png">
             </div>
-            <div class="card">
-                <a href=""><img src="../img/maze_runner_the_scorch_trials.jpg"></a>
-                <div class="card__head">Maze Runner: The Scorch Trials (2015)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/3_idiots.jpg"></a>
-                <div class="card__head">3 Idiots (2009)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/joker.jpg"></a>
-                <div class="card__head">Joker (2019)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/the_revenant.jpg"></a>
-                <div class="card__head">The Revenant (2015)</div>
-            </div>
-            <div class="card">
-                <a href=""><img src="../img/the_wolf_of_wall_street.jpg"></a>
-                <div class="card__head">The Wolf of Wall Street (2013)</div>
-            </div>
+            <?php
+
+                require_once("../db/movie.php");
+
+                $movie = new Movie();
+                $result = $movie->all_movies_by_genre("Drama");
+                
+                if ($result->num_rows > 0) {
+
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div class="card"> <a href=""> <img src="'.$row["Movie_Cover"].'"> </a> <div class="card__head">'.$row["Movie_Title"].'</div> </div>';
+                    }
+
+                }
+
+            ?>
         </div>
     </div>
 

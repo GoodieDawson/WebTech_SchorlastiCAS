@@ -64,6 +64,8 @@ if ($uploadOk == 0) {
     }
 }
 
+header('Location: ../admin/add_movie.php');
+exit();
 
 function processText($text) {
     $text = strip_tags($text);
