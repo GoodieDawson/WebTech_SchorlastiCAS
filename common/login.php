@@ -124,4 +124,32 @@
 
 </body>
 
-</html>
+
+ <!--do an onlick for the login, extract the values, do the check and redirect user to the movies tab esle echo, user does not exist.-->
+ <!-- https://phppot.com/php/user-registration-and-login-authentication-code-using-php/ -->
+ <?php
+session_start();
+if (isset($_POST["login"])) {
+    include_once 'login.php';
+    
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
+    
+    $database = new dbConnect();
+    
+    $db = $database->openConnection();
+    
+    $sql = "select * from users where username = '$username' and password= '$password'";
+    $user = $db->query($sql);
+    $result = $user->fetchAll(PDO::FETCH_ASSOC);
+    
+    $id = $result[0]['id'];
+    $username = $result[0]['username'];
+    $password = $result[0]['password'];
+    $_SESSION['username'] = $username;
+    $_SESSION['id'] = $id;
+    
+    $database->closeConnection();
+    header('location: index.php');
+}
+?>
