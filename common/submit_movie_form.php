@@ -64,7 +64,7 @@ if ($uploadOk == 0) {
     }
 }
 
-header('Location: ../admin/add_movie.php');
+header('Location: ../admin/add_forms/add_movie.php');
 exit();
 
 function processText($text) {

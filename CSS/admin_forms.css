@@ -2,6 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 html,
 body {
     background: #2F1E27;
@@ -24,7 +25,7 @@ body {
 
 .container {
     position: relative;
-    top: 100px;
+    top: 20px;
 }
 
 .container h1,
@@ -106,8 +107,9 @@ input[type="button"] {
     position: relative;
     left: 9px;
     top: 25px;
-    width: 100px;
+    width: 150px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 input[type="submit"] {
@@ -168,4 +170,59 @@ input[type="file"] {
     border-radius: 22px;
     margin-right: 10px;
     margin-left: -5px;
+}
+
+.wrapper {
+    text-align: center;
+    /* margin: 50px auto; */
+    font-family: 'Roboto', sans-serif;
+}
+
+.tabs {
+    margin-top: 50px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #43343d;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-radius: 50px;
+    position: relative;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.wrapper .tabs .selector {
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    border-radius: 50px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: rgba(197, 62, 126, .33);
+    /* background: -moz-linear-gradient(45deg, #2f1e28 0%, rgba(197, 62, 126, .33) 100%);
+    background: -webkit-linear-gradient(45deg, #2f1e28 0%, rgba(197, 62, 126, .33) 100%);
+    background: linear-gradient(45deg, #2f1e28 0%, rgba(197, 62, 126, .33) 100%); */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#2f1e28', endColorstr='rgba(197, 62, 126, .33)', GradientType=1);
+    overflow: auto;
 }
