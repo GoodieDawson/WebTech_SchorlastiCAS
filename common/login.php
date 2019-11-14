@@ -126,30 +126,45 @@
 
 
  <!--do an onlick for the login, extract the values, do the check and redirect user to the movies tab esle echo, user does not exist.-->
- <!-- https://phppot.com/php/user-registration-and-login-authentication-code-using-php/ -->
+ 
  <?php
+
 session_start();
-if (isset($_POST["login"])) {
-    include_once 'login.php';
-    
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
-    
-    $database = new dbConnect();
-    
-    $db = $database->openConnection();
-    
-    $sql = "select * from users where username = '$username' and password= '$password'";
-    $user = $db->query($sql);
-    $result = $user->fetchAll(PDO::FETCH_ASSOC);
-    
-    $id = $result[0]['id'];
-    $username = $result[0]['username'];
-    $password = $result[0]['password'];
-    $_SESSION['username'] = $username;
-    $_SESSION['id'] = $id;
-    
-    $database->closeConnection();
-    header('location: index.php');
+
+require ('ourdatabase.php');
+
+function sanitizeData($input) {
+    $data = trim($input);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    return $data;
 }
+
+if (isset($_POST["login"])) {
+    
+    $name = sanitizeData($_POST['username']);
+	$password = sanitizeData($_POST['password']);
+    
+    $password_hash = md5($password);
+
+    $sql = "select * from users where username = '$username' && password= '$password_hash'";
+    
+    $result = mysqli_query($connection, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        $_SESSION['user_info'] = $row['Username'];
+
+        header("Location: index.php");
+    } else {
+        echo "Login failed: User does not exist.";
+        header("Location: login.php");
+    }
+
+    mysqli_close($connection);
+
+}
+
 ?>
