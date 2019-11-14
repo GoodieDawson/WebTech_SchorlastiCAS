@@ -18,4 +18,13 @@ $(".tabs").on("click", "a", function(e) {
         "left": itemPos.left + "px",
         "width": activeWidth + "px"
     });
+
+    var current_tab = $(this).text();
+
+    $("#add_a_cinema").prop('value', 'UPDATE A CINEMA');
+    $("#add_a_cinema").prop('id', 'Update');
+    $("#add_a_cinema").prop('onClick', function() {
+        alert('ss');
+        return "window.location = 'update_forms/update_cinema.php'";
+    });
 });

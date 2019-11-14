@@ -8,9 +8,9 @@
         private $create_query = "INSERT INTO theatre (Theatre_Name, Cinema_ID) VALUES (?, ?)";
 
         function __construct($theatre_name='none', $cinema_id='none'){
+            parent::__construct();
 			$this->theatre_name = $theatre_name;
             $this->cinema_id = $cinema_id;
-            $this->connect();
         }
 
         function all_theatre(){

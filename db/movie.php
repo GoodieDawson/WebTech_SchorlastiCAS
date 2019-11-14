@@ -12,12 +12,12 @@
 
 
         function __construct($movie_title='none', $theatre_id='none', $movie_about = 'none', $movie_genre = 'none', $movie_cover = 'none'){
-			$this->movie_title = $movie_title;
+            parent::__construct();
+            $this->movie_title = $movie_title;
             $this->theatre_id = $theatre_id;
             $this->movie_about = $movie_about;
             $this->movie_genre = $movie_genre;
             $this->movie_cover = $movie_cover;
-            $this->connect();
         }
 
         function all_movies(){

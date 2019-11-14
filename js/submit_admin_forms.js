@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
     $("#add_cinema").click(function() {
-
         var cinema_name = $("#cinema_name").val();
         var cinema_address = $("#cinema_address").val();
         var cinema_telephone = $("#cinema_telephone").val();
@@ -11,7 +10,7 @@ $(document).ready(function() {
             return;
         }
 
-        $.post("../common/submit_admin_forms.php", {
+        $.post("../../common/submit_admin_forms.php", {
             c_name: cinema_name,
             c_address: cinema_address,
             c_telephone: cinema_telephone,
@@ -39,7 +38,7 @@ $(document).ready(function() {
             return;
         }
 
-        $.post("../common/submit_admin_forms.php", {
+        $.post("../../common/submit_admin_forms.php", {
             t_name: theatre_name,
             t_cinema: theatre_cinema
         }, function(data, status) {

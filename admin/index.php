@@ -27,16 +27,17 @@
         <h1>Insert an Entry!</h1>
 
         <div class="fields">
+            <br/>
             <div>
-                <input value="ADD A CINEMA" type="button" id="add_a_cinema" />
+                <p><a href="add_forms/add_cinema.php">ADD A CINEMA</a></p>
             </div>
             <br/>
             <div>
-                <input value="ADD A THEATRE" type="button" id="add_a_theatre" />
+                <p><a href="add_forms/add_cinema.php">ADD A THEATRE</a></p>
             </div>
             <br/>
             <div>
-                <input value="ADD A MOVIE" type="button" id="add_a_movie" />
+                <p><a href="add_forms/add_cinema.php">ADD A MOVIE</a></p>
             </div>
         </div>
 
