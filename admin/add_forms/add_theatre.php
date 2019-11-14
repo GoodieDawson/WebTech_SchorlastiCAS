@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/submit_admin_forms.js"></script>
-    <link type="text/css" rel="stylesheet" href="../css/admin_forms.css"></link>
+    <script type="text/javascript" src="../../js/submit_admin_forms.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/admin_forms.css"></link>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>Add a New Theatre</title>
@@ -27,7 +27,7 @@
                     <select name="theatre_cinema" id="theatre_cinema" required>
                         <option value="" selected="selected">Select a cinema</option>
                         <?php
-                            require_once("../db/cinema.php");
+                            require_once("../../db/cinema.php");
                             // Generate all cinemas
                             // Make <option> text the cinema_name, and cinema_id the the value
                             $cinema = new Cinema();
