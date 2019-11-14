@@ -124,4 +124,47 @@
 
 </body>
 
-</html>
+
+ <!--do an onlick for the login, extract the values, do the check and redirect user to the movies tab esle echo, user does not exist.-->
+ 
+ <?php
+
+session_start();
+
+require ('ourdatabase.php');
+
+function sanitizeData($input) {
+    $data = trim($input);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    return $data;
+}
+
+if (isset($_POST["login"])) {
+    
+    $name = sanitizeData($_POST['username']);
+	$password = sanitizeData($_POST['password']);
+    
+    $password_hash = md5($password);
+
+    $sql = "select * from users where username = '$username' && password= '$password_hash'";
+    
+    $result = mysqli_query($connection, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        $_SESSION['user_info'] = $row['Username'];
+
+        header("Location: index.php");
+    } else {
+        echo "Login failed: User does not exist.";
+        header("Location: login.php");
+    }
+
+    mysqli_close($connection);
+
+}
+
+?>
