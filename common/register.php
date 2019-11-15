@@ -74,6 +74,7 @@
                     <div class="col-md-6 col-xl-5 mb-4">
                         <br><br>
                         <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                        <form action="add_user.php" method="POST">
                             <div class="card-body">
                                     <!--Header-->
                                     <div class="text-center">
@@ -82,22 +83,22 @@
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-user prefix black-text active"></i>
-                                        <input type="text" id="form3" class="black-text form-control">
+                                        <input name="user_name" type="text" id="form3" class="black-text form-control">
                                         <label for="form3" class="active">Your name</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-envelope prefix black-text active"></i>
-                                        <input type="email" id="form2" class="black-text form-control">
+                                        <input name="user_email" type="email" id="form2" class="black-text form-control">
                                         <label for="form2" class="active">Your email</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-lock prefix black-text active"></i>
-                                        <input type="password" id="form4" class="black-text form-control">
+                                        <input name="user_password" type="password" id="form4" class="black-text form-control">
                                         <label for="form4">Your password</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-lock prefix black-text active"></i>
-                                        <input type="password" id="form4" class="black-text form-control">
+                                        <input name="user_password2" type="password" id="form4" class="black-text form-control">
                                         <label for="form5">Confirm password</label>
                                     </div>
                                 <div id="message">
@@ -112,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <button class="btn btn-indigo">Sign up</button>
+                                    <input name="submit" class="btn btn-indigo" value="Sign up" type="submit" id="add_user" />
                                     <hr class="hr-light mb-3 mt-4">
                                     <div class="inline-ul text-center">
                                         <a class="p-2 m-2 tw-ic">
@@ -126,6 +127,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
                         </div>
                         <!--/.Form-->
                     </div>
@@ -180,6 +182,7 @@
 
     }
     </script>
+
 </body>
 
 </html>
