@@ -19,12 +19,14 @@ $(".tabs").on("click", "a", function(e) {
         "width": activeWidth + "px"
     });
 
-    var current_tab = $(this).text();
+    var current_tab = $(this).text().toLowerCase();
 
-    $("#add_a_cinema").prop('value', 'UPDATE A CINEMA');
-    $("#add_a_cinema").prop('id', 'Update');
-    $("#add_a_cinema").prop('onClick', function() {
-        alert('ss');
-        return "window.location = 'update_forms/update_cinema.php'";
-    });
+    $("#add_a_cinema").text(current_tab.toUpperCase() + ' A CINEMA');
+    $("#add_a_cinema").prop('href', current_tab + '_forms/' + current_tab + '_cinema.php');
+
+    $("#add_a_theatre").text(current_tab.toUpperCase() + ' A THEATRE');
+    $("#add_a_theatre").prop('href', current_tab + '_forms/' + current_tab + '_theatre.php');
+
+    $("#add_a_movie").text(current_tab.toUpperCase() + ' A MOVIE');
+    $("#add_a_movie").prop('href', current_tab + '_forms/' + current_tab + '_movie.php');
 });

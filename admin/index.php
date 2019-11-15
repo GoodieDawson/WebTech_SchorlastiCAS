@@ -29,15 +29,15 @@
         <div class="fields">
             <br/>
             <div>
-                <p><a href="add_forms/add_cinema.php">ADD A CINEMA</a></p>
+                <a id="add_a_cinema" href="add_forms/add_cinema.php"> ADD A CINEMA </a>
             </div>
             <br/>
             <div>
-                <p><a href="add_forms/add_cinema.php">ADD A THEATRE</a></p>
+                <a id="add_a_theatre" href="add_forms/add_theatre.php"> ADD A THEATRE </a>
             </div>
             <br/>
             <div>
-                <p><a href="add_forms/add_cinema.php">ADD A MOVIE</a></p>
+                <a id="add_a_movie" href="add_forms/add_movie.php"> ADD A MOVIE </a>
             </div>
         </div>
 
