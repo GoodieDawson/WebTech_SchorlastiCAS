@@ -13,7 +13,7 @@
 <body>
 
     <div class="container">
-        <h2>Update Flicks</h2>
+        <h2>Modify Flicks</h2>
 
         <div class="wrapper">
             <nav class="tabs">
@@ -24,9 +24,9 @@
             </nav>
         </div>
 
-        <h1>Insert an Entry!</h1>
+        <h1 id="flick_action">Insert an Entry!</h1>
 
-        <div class="fields">
+        <div class="home-fields">
             <br/>
             <div>
                 <a id="add_a_cinema" href="add_forms/add_cinema.php"> ADD A CINEMA </a>

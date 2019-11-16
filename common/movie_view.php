@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Script -->
+    
+    <!-- CSS -->
     <link type="text/css" rel="stylesheet" href="../css/movie_view.css">
     <link href="https://fonts.googleapis.com/css?family=Lexend+Mega&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+        <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>FlickTick - Flicks</title>
 </head>

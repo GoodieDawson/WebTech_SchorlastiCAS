@@ -9,7 +9,7 @@
         private $movie_about = null;
         private $movie_cover = null;
         private $create_query = "INSERT INTO movie (Movie_Title, Movie_Genre, Theatre_ID, About_Movie, Movie_Cover) VALUES(?, ?, ?, ?, ?)";
-
+        private $update_query = "UPDATE movie SET Movie_Title=?, Movie_Genre=?, Theatre_ID=?, About_Movie=?, Movie_Cover=? WHERE Movie_ID=?";
 
         function __construct($movie_title='none', $theatre_id='none', $movie_about = 'none', $movie_genre = 'none', $movie_cover = 'none'){
             parent::__construct();
@@ -35,6 +35,14 @@
 
             return $this->get_query_result();
         }
+
+        function get_movie($id){
+            $queryString = "SELECT * FROM movie WHERE Movie_ID='$id'";
+
+            $this->execute_query($queryString);
+
+            return $this->get_query_result();
+        }
         
         function create(){
             $query_statement = mysqli_prepare($this->connection, $this->create_query);
@@ -44,6 +52,7 @@
                 $ret_val = $query_statement->execute();
                 $this->id = $this->recently_generated_id();
                 
+                $query_statement->close();
                 return $ret_val;
             }
             else {
@@ -55,10 +64,22 @@
             
         }
 
-        function update(){
-            $queryString = "UPDATE movie SET Movie_Name='$this->movie_title', Theatre_ID='$this->theatre_id' ".
-            "About_Movie='$this->movie_about', Movie_Genre='$this->movie_genre', Movie_Cover='$this->movie_cover".
-            "WHERE Movie_ID='$this->id'";
+        function update($m_id = 'none'){
+            if ($m_id == 'none'){
+                $this->id;
+            }
+            $query_statement = mysqli_prepare($this->connection, $this->update_query);
+            if ($query_statement) {
+                $query_statement->bind_param("ssissi", $this->movie_title, $this->movie_genre, $this->theatre_id, $this->movie_about, $this->movie_cover, $m_id);
+
+                $ret_val = $query_statement->execute();
+                
+                $query_statement->close();
+                return $ret_val;
+            }
+            else {
+                return "Error during movie update.";
+            }
         }
 
         function delete(){

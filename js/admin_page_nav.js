@@ -21,6 +21,8 @@ $(".tabs").on("click", "a", function(e) {
 
     var current_tab = $(this).text().toLowerCase();
 
+    $("#flick_action").text(current_tab.charAt(0).toUpperCase() + current_tab.slice(1) + " an Entry");
+
     $("#add_a_cinema").text(current_tab.toUpperCase() + ' A CINEMA');
     $("#add_a_cinema").prop('href', current_tab + '_forms/' + current_tab + '_cinema.php');
 

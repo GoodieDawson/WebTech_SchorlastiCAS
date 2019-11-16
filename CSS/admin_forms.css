@@ -2,7 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 html,
 body {
     background: #2F1E27;
@@ -21,6 +21,15 @@ body {
 body {
     counter-reset: section;
     text-align: center;
+    vertical-align: middle;
+}
+
+.back {
+    z-index: 4;
+    position: relative;
+    float: left;
+    top: 40vh;
+    left: 25px;
 }
 
 .container {
@@ -66,40 +75,84 @@ body {
     background: #2F1E27;
 }
 
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.entry-selection {
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.entry-selection input {
+    min-width: 10%;
+    width: 10%;
+}
+
+.entry-selection-btn {
+    align-items: center;
+    justify-content: center;
+}
+
+.entry-selection-btn button {
+    background: rgba(197, 62, 126, .33) ! important;
+    color: #fff;
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 22px;
+    border: transparent;
+}
+
 form {
     margin-top: 25px;
     display: inline-block;
 }
 
-.fields {
-    border-left: 2px solid #4c2639;
+.home-fields {
     text-align: center;
     align-items: center;
-    width: 100%;
+    max-width: 200px;
+    display: inline-block;
 }
 
-.fields a {
+.fields {
+    align-items: center;
+}
+
+.fields a,
+.home-fields a {
     display: block;
     color: white;
     text-decoration: none;
     position: relative;
     font-family: 'Roboto', sans-serif;
+    /* border-bottom: solid rgba(197, 62, 126, .33) 2px; */
 }
 
-.fields a::after {
+.fields a::after,
+.home-fields a::after {
     content: "";
-    background: white;
-    mix-blend-mode: exclusion;
+    background: rgba(197, 62, 126, .33);
+    /* mix-blend-mode: exclusion; */
     width: calc(100% + 20px);
     height: 0;
     position: absolute;
     bottom: -4px;
     left: -10px;
     transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border-radius: 22px;
+    border-bottom: solid palevioletred 2px;
 }
 
-.fields a:hover::after {
-    height: calc(100% + 8px)
+.fields a:hover::after,
+.home-fields a:hover::after {
+    height: calc(100% + 8px);
 }
 
 .container span {
@@ -252,4 +305,57 @@ input[type="file"] {
     background: linear-gradient(45deg, #2f1e28 0%, rgba(197, 62, 126, .33) 100%); */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#2f1e28', endColorstr='rgba(197, 62, 126, .33)', GradientType=1);
     overflow: auto;
+}
+
+.back button {
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+
+.back svg {
+    padding: 5px;
+}
+
+.back .arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -45px;
+    margin-left: -35px;
+    width: 70px;
+    height: 90px;
+}
+
+.back .left {
+    left: 42%;
+}
+
+.back .right {
+    left: 58%;
+}
+
+.back .left:hover polyline,
+.back .left:focus polyline {
+    stroke-width: 3;
+}
+
+.back .left:active polyline {
+    stroke-width: 6;
+    transition: all 100ms ease-in-out;
+}
+
+.back .right:hover polyline,
+.back .right:focus polyline {
+    stroke-width: 3;
+}
+
+.back .right:active polyline {
+    stroke-width: 6;
+    transition: all 100ms ease-in-out;
+}
+
+.back polyline {
+    transition: all 250ms ease-in-out;
 }

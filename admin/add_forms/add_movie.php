@@ -4,20 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <script type="text/javascript" src="../../js/submit_admin_forms.js"></script>
+
+    <!-- CSS -->
     <link type="text/css" rel="stylesheet" href="../../css/admin_forms.css"></link>
+        <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>Add a New Movie</title>
 </head>
 <body>
+
+    <div class="back">
+        <button class="arrow left" onclick="window.location.href = '../';">
+            <svg width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve">
+            <polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="
+            45.63,75.8 0.375,38.087 45.63,0.375 "/>
+            </svg>  
+        </button>
+    </div>
 
     <div class="container">
         <h2>Update Flicks</h2>
         <h1>Add a new movie!</h1>
     
-        <form action="../../common/submit_movie_form.php" method="POST" id="add_movie_form" enctype="multipart/form-data">
+        <form action="../../common/submit_admin_forms.php" method="POST" id="add_movie_form" enctype="multipart/form-data">
             <div class="fields">
+                <input type="hidden" name="movie_post" id="movie_post" value="empty" />
                 <span>
                     <input name="movie_title" id="movie_title" placeholder="Title" type="text" required />
                 </span>
@@ -58,7 +72,7 @@
                 </span>
             </div>
             <div class="submit">
-                <input class="submit" value="Submit" type="submit" id="add_movie" />
+                <input class="submit" value="Submit" type="submit" name="submit" id="add_movie" />
             </div>
         </form>
     </div>
