@@ -83,35 +83,58 @@
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-user prefix black-text active"></i>
-                                        <input name="user_name" type="text" id="form3" class="black-text form-control">
-                                        <label for="form3" class="active">Your name</label>
+                                        <input name="user_name" type="text" id="form1" class="black-text form-control">
+                                        <label for="form1" class="active">Username</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-lock prefix black-text active"></i>
+                                        <input name="user_password" type="password" id="form2" class="black-text form-control">
+                                        <label for="form2">Password</label>
+                                    </div>
+                                    <div id="message">
+                                        <div id="weak">
+                                        </div>
+                                        <div id="medium">
+                                        </div>
+                                        <div id="strong">
+                                        </div>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-lock prefix black-text active"></i>
+                                        <input name="user_password2" type="password" id="form3" class="black-text form-control">
+                                        <label for="form3">Confirm password</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-envelope prefix black-text active"></i>
-                                        <input name="user_email" type="email" id="form2" class="black-text form-control">
-                                        <label for="form2" class="active">Your email</label>
+                                        <input name="user_email" type="email" id="form4" class="black-text form-control">
+                                        <label for="form4" class="active">Email</label>
                                     </div>
                                     <div class="md-form">
-                                        <i class="fas fa-lock prefix black-text active"></i>
-                                        <input name="user_password" type="password" id="form4" class="black-text form-control">
-                                        <label for="form4">Your password</label>
+                                        <i class="fa fa-id-card prefix black-text active"></i>
+                                        <input name="first_name" type="text" id="form5" class="black-text form-control">
+                                        <label for="form5" class="active">First Name</label>
                                     </div>
                                     <div class="md-form">
-                                        <i class="fas fa-lock prefix black-text active"></i>
-                                        <input name="user_password2" type="password" id="form4" class="black-text form-control">
-                                        <label for="form5">Confirm password</label>
+                                        <i class="fa fa-id-card prefix black-text active"></i>
+                                        <input name="last_name" type="text" id="form6" class="black-text form-control">
+                                        <label for="form6" class="active">Last Name</label>
                                     </div>
-                                <div id="message">
-                                    <div id="weak"
-                                        style="display: inline-block; width: 15%; height: 5%;background-color: #ff6961;">
+                                    <div class="md-form">
+                                        <i class="fas fa-transgender-alt prefix black-text active"></i>
+                                        <label for="form7" class="active">Gender</label>
+                                        <select id="form7" class="black-text form-control" style="width:50%;">
+                                            <option value="volvo">Volvo</option>
+                                            <option value="saab">Saab</option>
+                                            <option value="opel">Opel</option>
+                                            <option value="audi">Audi</option>
+                                        </select>
                                     </div>
-                                    <div id="medium"
-                                        style="display: inline-block; width: 15%; height: 5%;background-color: grey;">
+                                    <div class="md-form">
+                                        <i class="fa fa-id-card prefix black-text active"></i>
+                                        <input name="last_name" type="text" id="form2" class="black-text form-control">
+                                        <label for="form2" class="active">Last Name</label>
                                     </div>
-                                    <div id="strong"
-                                        style="display: inline-block; width: 15%; height: 5%;background-color: grey;">
-                                    </div>
-                                </div>
+                            
                                 <div class="text-center mt-4">
                                     <input name="submit" class="btn btn-indigo" value="Sign up" type="submit" id="add_user" />
                                     <hr class="hr-light mb-3 mt-4">
@@ -151,7 +174,7 @@
     var div2 = document.getElementById("medium");
     var div3 = document.getElementById("strong");
 
-    var myInput = document.getElementById("form4");
+    var myInput = document.getElementById("form2");
 
     myInput.onfocus = function() {
         document.getElementById("message").style.display = "block";

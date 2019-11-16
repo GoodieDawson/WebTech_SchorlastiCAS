@@ -4,7 +4,7 @@ require_once("../db/user.php");
 
 
 if (isset($_POST["submit"])) {
-    add_new_user($_POST["user_name"], $_POST["user_password"], $_POST["user_email"]);
+    add_new_user($_POST["user_name"], md5($_POST["user_password"]), $_POST["user_email"]);
     
 }
 
