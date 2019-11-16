@@ -26,7 +26,7 @@
     </div>
 
     <div class="container">
-        <h2>Update Flicks</h2>
+        <h2>New Movie</h2>
         <h1>Add a new movie!</h1>
     
         <form action="../../common/submit_admin_forms.php" method="POST" id="add_movie_form" enctype="multipart/form-data">

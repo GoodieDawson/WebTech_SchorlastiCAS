@@ -4,6 +4,7 @@ require_once("../db/cinema.php");
 require_once("../db/theatre.php");
 require_once("../db/movie.php");
 
+// Handling POST Requests
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     // Adding a Cinema
@@ -17,6 +18,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         add_new_cinema($cinema_name, $cinema_address, $cinema_telephone, $cinema_email);
     }
 
+    // Updating a Cinema
+    if (isset($_POST["cinema_update_post"])) {
+
+        $cinema_name = sanitizeData($_POST["c_name"]);
+        $cinema_address = sanitizeData($_POST["c_address"]);
+        $cinema_telephone = sanitizeData($_POST["c_telephone"]);
+        $cinema_email = sanitizeData($_POST["c_email"]);
+
+        update_cinema($_POST["cinema_update_post"], $cinema_name, $cinema_address, $cinema_telephone, $cinema_email);
+    }
+
     // Adding a Theatre
     elseif (isset($_POST["theatre_post"])) {
 
@@ -26,7 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         add_new_theatre($theatre_name, $theatre_cinema);
     }
 
-    // Adding a Movie
+    // Updating a Theatre
+    elseif (isset($_POST["theatre_update_post"])) {
+ 
+        $theatre_name = sanitizeData($_POST["t_name"]);
+        $theatre_cinema = sanitizeData($_POST["t_cinema"]);
+
+        update_theatre($_POST["theatre_update_post"], $theatre_name, $theatre_cinema);
+    }
+
+    // Adding or Updating a Movie
     elseif (isset($_POST["movie_post"]) || isset($_POST["movie_update_post"])) {
 
         $alert_messages = [];
@@ -104,7 +125,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 
+// Handling GET Requests
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+    // Loading Cinema data
+    if (isset($_GET["get_cinema_data"])) {
+        $cinema = new Cinema();
+        $result = $cinema->get_cinema($_GET["c_id"]);
+        $row = $result->fetch_assoc();
+        $ret_arr = [$row['Cinema_Name'], $row['Cinema_Address'], $row['Cinema_Telephone'], $row['Cinema_Email']];
+        echo json_encode($ret_arr);
+    }
+
     // Loading Movie data
     if (isset($_GET["get_movie_data"])) {
         $movie = new Movie();
@@ -113,8 +144,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $ret_arr = [$row['Movie_Title'], $row['Movie_Genre'], $row['About_Movie'], $row['Theatre_ID']];
         echo json_encode($ret_arr);
     }
-}
 
+    // Loading Theatre data
+    if (isset($_GET["get_theatre_data"])) {
+        $theatre = new Theatre();
+        $result = $theatre->get_theatre($_GET["t_id"]);
+        $row = $result->fetch_assoc();
+        $ret_arr = [$row['Theatre_Name'], $row['Cinema_ID']];
+        echo json_encode($ret_arr);
+    }
+}
 
 
 function add_new_cinema($cinema_name, $cinema_address, $cinema_telephone, $cinema_email) {
@@ -130,6 +169,16 @@ function add_new_theatre($theatre_name, $theatre_cinema) {
 function add_new_movie($movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover){
     $movie = new Movie($movie_title = $movie_title, $theatre_id = $movie_theatre, $movie_about = $movie_about, $movie_genre = $movie_genre, $movie_cover = $movie_cover);
     echo $movie->create();
+}
+
+function update_cinema($cinema_id, $cinema_name, $cinema_address, $cinema_telephone, $cinema_email) {
+    $cinema = new Cinema($cinema_name = $cinema_name, $cinema_address = $cinema_address, $cinema_telephone = $cinema_telephone, $cinema_email = $cinema_email);
+    echo $cinema->update($cinema_id);
+}
+
+function update_theatre($theatre_id, $theatre_name, $theatre_cinema) {
+    $theatre = new Theatre($theatre_name = $theatre_name, $cinema_id = $theatre_cinema);
+    echo $theatre->update($theatre_id);
 }
 
 function update_movie($movie_id, $movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover){

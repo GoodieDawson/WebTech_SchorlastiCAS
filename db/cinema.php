@@ -8,8 +8,7 @@
         private $cinema_telephone = null;
         private $cinema_email = null;
         private $create_query = "INSERT INTO cinema (Cinema_Name, Cinema_Address, Cinema_Telephone, Cinema_Email) VALUES (?, ?, ?, ?)";
-
-        // INSERT INTO `cinema` (`Cinema_ID`, `Cinema_Name`, `Cinema_Address`, `Cinema_Telephone`, `Cinema_Email`) VALUES (NULL, 'Bronzefalcon', 'School Rd', '0238981217', 'bronzeFalcon@flick.cin.com');
+        private $update_query = "UPDATE cinema SET Cinema_Name=?, Cinema_Address=?, Cinema_Telephone=?, Cinema_Email=? WHERE Cinema_ID=?";
 
         function __construct($cinema_name='none', $cinema_address='none', $cinema_telephone='none', $cinema_email='none'){
             parent::__construct();
@@ -21,6 +20,14 @@
 
         function all_cinema(){
             $queryString = "SELECT * from cinema";
+
+            $this->execute_query($queryString);
+
+            return $this->get_query_result();
+        }
+
+        function get_cinema($id){
+            $queryString = "SELECT * FROM cinema WHERE Cinema_ID='$id'";
 
             $this->execute_query($queryString);
 
@@ -48,9 +55,22 @@
 
         }
 
-        function update(){
-            $queryString = "UPDATE movie SET Cinema_Name='$this->cinema_name', Cinema_Address='$this->cinema_address', ".
-            "Cinema_Telephone='$this->cinema_telephone', Cinema_Email='$this->cinema_email'";
+        function update($c_id){
+            if ($c_id == 'none'){
+                $c_id = $this->id;
+            }
+            $query_statement = mysqli_prepare($this->connection, $this->update_query);
+            if ($query_statement) {
+                $query_statement->bind_param("ssssi", $this->cinema_name, $this->cinema_address, $this->cinema_telephone, $this->cinema_email, $c_id);
+
+                $ret_val = $query_statement->execute();
+                
+                $query_statement->close();
+                return $ret_val;
+            }
+            else {
+                return "Error during cinema update.";
+            }
         }
 
         function delete(){

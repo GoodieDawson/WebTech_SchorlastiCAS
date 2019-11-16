@@ -66,7 +66,7 @@
 
         function update($m_id = 'none'){
             if ($m_id == 'none'){
-                $this->id;
+                $m_id = $this->id;
             }
             $query_statement = mysqli_prepare($this->connection, $this->update_query);
             if ($query_statement) {

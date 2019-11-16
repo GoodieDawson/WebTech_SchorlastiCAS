@@ -30,6 +30,7 @@
     <div class="container">
         <h2>Update Flicks</h2>
         <h1>Update a movie!</h1>
+        
         <div class="entry-selection">
             <input type="hidden" name="get_movie_data" id="get_movie_data" value="empty" />
             <input name="movie_id" id="movie_id" placeholder="Movie ID" type="text" readonly />
