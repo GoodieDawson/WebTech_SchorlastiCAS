@@ -83,12 +83,12 @@
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-user prefix black-text active"></i>
-                                        <input name="user_name" type="text" id="form1" class="black-text form-control">
+                                        <input name="user_name" type="text" id="form1" class="black-text form-control" required>
                                         <label for="form1" class="active">Username</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-lock prefix black-text active"></i>
-                                        <input name="user_password" type="password" id="form2" class="black-text form-control">
+                                        <input name="user_password" type="password" id="form2" class="black-text form-control" required>
                                         <label for="form2">Password</label>
                                     </div>
                                     <div id="message">
@@ -101,38 +101,52 @@
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-lock prefix black-text active"></i>
-                                        <input name="user_password2" type="password" id="form3" class="black-text form-control">
+                                        <input name="user_password2" type="password" id="form3" class="black-text form-control" required>
                                         <label for="form3">Confirm password</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-envelope prefix black-text active"></i>
-                                        <input name="user_email" type="email" id="form4" class="black-text form-control">
+                                        <input name="user_email" type="email" id="form4" class="black-text form-control" required>
                                         <label for="form4" class="active">Email</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-id-card prefix black-text active"></i>
-                                        <input name="first_name" type="text" id="form5" class="black-text form-control">
+                                        <input name="first_name" type="text" id="form5" class="black-text form-control" required>
                                         <label for="form5" class="active">First Name</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-id-card prefix black-text active"></i>
-                                        <input name="last_name" type="text" id="form6" class="black-text form-control">
+                                        <input name="last_name" type="text" id="form6" class="black-text form-control" required>
                                         <label for="form6" class="active">Last Name</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-transgender-alt prefix black-text active"></i>
                                         <label for="form7" class="active">Gender</label>
-                                        <select id="form7" class="black-text form-control" style="width:50%;">
-                                            <option value="volvo">Volvo</option>
-                                            <option value="saab">Saab</option>
-                                            <option value="opel">Opel</option>
-                                            <option value="audi">Audi</option>
+                                        <select name="gender" id="form7" class="black-text form-control" style="width:50%;">
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                     <div class="md-form">
-                                        <i class="fa fa-id-card prefix black-text active"></i>
-                                        <input name="last_name" type="text" id="form2" class="black-text form-control">
-                                        <label for="form2" class="active">Last Name</label>
+                                        <i class="fas fa-calendar-alt prefix black-text active"></i>
+                                        <input name="date_of_birth" type="date" id="form8" class="black-text form-control" required>
+                                        <label for="form8" class="active">Date of Birth</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-globe-africa prefix black-text active"></i>
+                                        <input name="Nationality" type="text" id="form8" class="black-text form-control">
+                                        <label for="form8" class="active">Nationality</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-address-book prefix black-text active"></i>
+                                        <input name="address" type="text" id="form9" class="black-text form-control">
+                                        <label for="form9" class="active">Address</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-phone prefix black-text active"></i>
+                                        <input name="contact_number" type="tel" id="form10" class="black-text form-control" required>
+                                        <label for="form10" class="active">Phone Number</label>
                                     </div>
                             
                                 <div class="text-center mt-4">
@@ -167,8 +181,7 @@
 
     <script type="text/javascript">
     var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-    var mediumRegex = new RegExp(
-        "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+    var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 
     var div1 = document.getElementById("weak");
     var div2 = document.getElementById("medium");
