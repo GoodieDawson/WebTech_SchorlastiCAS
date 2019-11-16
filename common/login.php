@@ -72,6 +72,7 @@
                     <div class="col-md-6 col-xl-5 mb-4">
                         <br><br>
                         <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                        <form action="login_check.php" method="POST">
                             <div class="card-body">
                                 <!--Header-->
                                 <div class="text-center">
@@ -79,14 +80,14 @@
                                     <hr class="hr-light">
                                 </div>
                                 <div class="md-form">
-                                    <i class="fas fa-envelope prefix black-text active"></i>
-                                    <input type="email" id="form2" class="black-text form-control">
-                                    <label for="form2" class="active">Your email</label>
+                                    <i class="fas fa-user prefix black-text active"></i>
+                                    <input name="user_name" type="text" id="form2" class="black-text form-control">
+                                    <label for="form2" class="active">Username</label>
                                 </div>
                                 <div class="md-form">
                                     <i class="fas fa-lock prefix black-text active"></i>
-                                    <input type="password" id="form4" class="black-text form-control">
-                                    <label for="form4">Your password</label>
+                                    <input name="user_password" type="password" id="form4" class="black-text form-control">
+                                    <label for="form4">Password</label>
                                 </div>
                                 <div id="message">
                                     <div id="weak" style="display: inline-block; width: 15%; height: 5%;background-color: #ff6961;"></div>
@@ -94,7 +95,8 @@
                                     <div id="strong" style="display: inline-block; width: 15%; height: 5%;background-color: grey;"></div>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <button class="btn btn-indigo" onclick="validate()">Login</button>
+                                    <input name="submit" class="btn btn-indigo" value="Login" type="submit" id="login_check" />
+                                    <!--<button class="btn btn-indigo" onclick="validate()">Login</button>-->
                                     <hr class="hr-light mb-3 mt-4">
                                     <div class="inline-ul text-center">
                                         <a class="p-2 m-2 tw-ic">
@@ -108,6 +110,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
                         </div>
                         <!--/.Form-->
                     </div>
@@ -127,44 +130,3 @@
 
  <!--do an onlick for the login, extract the values, do the check and redirect user to the movies tab esle echo, user does not exist.-->
  
- <?php
-
-session_start();
-
-require ('ourdatabase.php');
-
-function sanitizeData($input) {
-    $data = trim($input);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-
-    return $data;
-}
-
-if (isset($_POST["login"])) {
-    
-    $name = sanitizeData($_POST['username']);
-	$password = sanitizeData($_POST['password']);
-    
-    $password_hash = md5($password);
-
-    $sql = "select * from users where username = '$username' && password= '$password_hash'";
-    
-    $result = mysqli_query($connection, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-
-        $_SESSION['user_info'] = $row['Username'];
-
-        header("Location: index.php");
-    } else {
-        echo "Login failed: User does not exist.";
-        header("Location: login.php");
-    }
-
-    mysqli_close($connection);
-
-}
-
-?>
