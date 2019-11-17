@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -89,14 +95,8 @@
                                     <input name="user_password" type="password" id="form4" class="black-text form-control">
                                     <label for="form4">Password</label>
                                 </div>
-                                <div id="message">
-                                    <div id="weak" style="display: inline-block; width: 15%; height: 5%;background-color: #ff6961;"></div>
-                                    <div id="medium" style="display: inline-block; width: 15%; height: 5%;background-color: grey;"></div>
-                                    <div id="strong" style="display: inline-block; width: 15%; height: 5%;background-color: grey;"></div>
-                                </div>
                                 <div class="text-center mt-4">
                                     <input name="submit" class="btn btn-indigo" value="Login" type="submit" id="login_check" />
-                                    <!--<button class="btn btn-indigo" onclick="validate()">Login</button>-->
                                     <hr class="hr-light mb-3 mt-4">
                                     <div class="inline-ul text-center">
                                         <a class="p-2 m-2 tw-ic">

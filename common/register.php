@@ -28,7 +28,7 @@
 </head>
 
 <body
-    style="background-image: url(../img/Backgrounds/road_marking_bridge_123398_1280x720.jpg); background-repeat: no-repeat; background-size: cover">
+    style="background-attachment: fixed; background-image: url(../img/Backgrounds/road_marking_bridge_123398_1280x720.jpg); background-repeat: no-repeat; background-size: cover">
     <header>
         <!-- Navbar -->
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -84,7 +84,7 @@
                                     <div class="md-form">
                                         <i class="fas fa-user prefix black-text active"></i>
                                         <input name="user_name" type="text" id="form1" class="black-text form-control" required>
-                                        <label for="form1" class="active">Username</label>
+                                        <label for="form1">Username</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-lock prefix black-text active"></i>
@@ -107,22 +107,22 @@
                                     <div class="md-form">
                                         <i class="fas fa-envelope prefix black-text active"></i>
                                         <input name="user_email" type="email" id="form4" class="black-text form-control" required>
-                                        <label for="form4" class="active">Email</label>
+                                        <label for="form4" >Email</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-id-card prefix black-text active"></i>
                                         <input name="first_name" type="text" id="form5" class="black-text form-control" required>
-                                        <label for="form5" class="active">First Name</label>
+                                        <label for="form5">First Name</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-id-card prefix black-text active"></i>
                                         <input name="last_name" type="text" id="form6" class="black-text form-control" required>
-                                        <label for="form6" class="active">Last Name</label>
+                                        <label for="form6">Last Name</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-transgender-alt prefix black-text active"></i>
                                         <label for="form7" class="active">Gender</label>
-                                        <select name="gender" id="form7" class="black-text form-control" style="width:50%;">
+                                        <select name="gender" id="form7" class="black-text form-control" style="width:50%; padding-left:10%; border: 0px;">
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                             <option value="Other">Other</option>
@@ -131,22 +131,22 @@
                                     <div class="md-form">
                                         <i class="fas fa-calendar-alt prefix black-text active"></i>
                                         <input name="date_of_birth" type="date" id="form8" class="black-text form-control" required>
-                                        <label for="form8" class="active">Date of Birth</label>
+                                        <label for="form8" >Date of Birth</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-globe-africa prefix black-text active"></i>
                                         <input name="Nationality" type="text" id="form8" class="black-text form-control">
-                                        <label for="form8" class="active">Nationality</label>
+                                        <label for="form8">Nationality</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-address-book prefix black-text active"></i>
                                         <input name="address" type="text" id="form9" class="black-text form-control">
-                                        <label for="form9" class="active">Address</label>
+                                        <label for="form9" >Address</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fas fa-phone prefix black-text active"></i>
                                         <input name="contact_number" type="tel" id="form10" class="black-text form-control" required>
-                                        <label for="form10" class="active">Phone Number</label>
+                                        <label for="form10" >Phone Number</label>
                                     </div>
                             
                                 <div class="text-center mt-4">

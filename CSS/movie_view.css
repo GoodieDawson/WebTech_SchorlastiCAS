@@ -28,7 +28,8 @@ header::after {
     margin: 0 auto;
 } */
 
-.nav_container h1 {
+.nav_container h1,
+h3 {
     display: inline-block;
 }
 
