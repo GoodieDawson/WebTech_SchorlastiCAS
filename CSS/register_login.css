@@ -24,7 +24,7 @@ header,
 }
 
 .top-nav-collapse {
-    background-color: #fafbff !important;
+    background-color: transparent !important;
 }
 
 .navbar:not(.top-nav-collapse) {
