@@ -5,14 +5,27 @@
         private $id = null;
         private $user_name = null;
         private $user_password = null;
+        private $first_name = null;
+        private $last_name = null;
+        private $gender = null;
+        private $date_of_birth = null;
+        private $address = null;
         private $user_email = null;
-        private $create_query = "INSERT INTO user (User_Name, User_Password, Email_Address) VALUES (?, ?, ?)";
+        private $contact_number = null;
+        private $create_query = "INSERT INTO user (User_Name, User_Password, First_Name, Last_Name, Gender, Date_of_Birth, Address, Email_Address, Contact_Number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        private $select_query = "SELECT * FROM user WHERE User_Name = ? AND User_Password = ?";
 
-        function __construct($user_name='none', $user_password='none', $user_email='none'){
+        function __construct($user_name='none', $user_password='none', $first_name='none', $last_name='none', $gender='none', $date_of_birth='none', $address='none', $user_email='none', $contact_number='none'){
             parent::__construct();
 			$this->user_name = $user_name;
             $this->user_password = $user_password;
+            $this->first_name = $first_name;
+            $this->last_name = $last_name;
+            $this->gender = $gender;
+            $this->date_of_birth = $date_of_birth;
+            $this->address = $address;
             $this->user_email = $user_email;
+            $this->contact_number = $contact_number;
             $this->connect();
         }
 
@@ -21,7 +34,7 @@
 
             if ($query_statement) {
                 
-                $query_statement->bind_param("sss", $this->user_name, $this->user_password, $this->user_email);
+                $query_statement->bind_param("sssssssss", $this->user_name, $this->user_password, $this->first_name, $this->last_name, $this->gender, $this->date_of_birth, $this->address, $this->user_email, $this->contact_number);
                 
                 $ret_val = $query_statement->execute();
                 
@@ -29,10 +42,33 @@
                 
                 $query_statement->close();
                 return $ret_val;
-            }
-            else {
+
+            } else {
                 return "Error during insertion";
             }
+        }
+
+        function get_user() {
+            $query_statement = mysqli_prepare($this->connection, $this->select_query);
+
+            if ($query_statement) {
+
+                $query_statement->bind_param("ss", $this->user_name, $this->user_password);
+
+                $query_statement->execute();
+
+                $ret_val = $query_statement->get_result();
+
+                $ret_val = $ret_val->num_rows;
+
+                $query_statement->close();
+
+                return $ret_val;
+            } else {
+                return "Error during selection";
+            }
+
+
         }
     }
 
