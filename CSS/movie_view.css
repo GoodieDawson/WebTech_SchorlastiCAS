@@ -28,6 +28,11 @@ header::after {
     margin: 0 auto;
 } */
 
+.nav_container h1,
+h3 {
+    display: inline-block;
+}
+
 .nav_container nav {
     position: absolute;
     text-align: left;

@@ -102,7 +102,6 @@ session_start();
                                 </div>
                                 <div class="text-center mt-4">
                                     <input name="submit" class="btn btn-indigo" value="Login" type="submit" id="login_check" />
-                                    <!--<button class="btn btn-indigo" onclick="validate()">Login</button>-->
                                     <hr class="hr-light mb-3 mt-4">
                                     <div class="inline-ul text-center">
                                         <a class="p-2 m-2 tw-ic">
