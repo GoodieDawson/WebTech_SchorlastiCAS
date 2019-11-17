@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+
+?>
+
+<?php
+
 require_once("../db/user.php");
 
 function sanitizeData($input) {
@@ -26,7 +32,10 @@ if (isset($_POST["submit"])) {
 
         
     } else {
-        echo "Login succesful";
+        
+        $_SESSION["user_name"] = $user_name;
+        header('Location: movie_view.php');
+        exit();
         
     }
 

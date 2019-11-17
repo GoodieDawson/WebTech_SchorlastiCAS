@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,13 +24,17 @@
     <title>FlickTick - Flicks</title>
 </head>
 
-<body>
+<body onload="check_user();">
 
     <header>
         <div class="nav_container">
             <h1 style="color: black; font-family: 'Lexend Mega', sans-serif;" class="home">
                 FLICKS
             </h1>
+            <div id="user_div">
+                <i class="fas fa-user prefix black-text active"></i>
+                <h1 id="user_info"></h1>
+            </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <nav>
                 <ul>
@@ -85,6 +95,21 @@
     </div>
 
     <div id="overlay"></div>
+
+    <script type="text/javascript">
+        function check_user(){
+            var user_div = document.getElementById("user_div");
+            var user_info = document.getElementById("user_info");
+
+            
+
+            if ("<?php echo $_SESSION['user_name']; ?>") {
+                alert("<?php echo $_SESSION['user_name']; ?>");
+                user_info.innerHTML = "Welcome " + "<?php echo $_SESSION['user_name']; ?>";
+            }
+        }
+        
+    </script>
 
 </body>
 
