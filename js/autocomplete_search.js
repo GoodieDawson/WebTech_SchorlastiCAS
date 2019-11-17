@@ -15,6 +15,11 @@ $(document).ready(function() {
         all_movie();
     }
 
+    if ($("#showtime_call").length) {
+        showtimes = []
+        all_showtime();
+    }
+
     function all_cinema() {
         $.get("../../common/submit_admin_forms.php", {
             get_all_cinema: ''
@@ -48,6 +53,18 @@ $(document).ready(function() {
             keys = []
             for (var k in data) keys.push(k);
             autocomplete(document.getElementById("movie_search"), keys);
+        });
+    }
+
+    function all_showtime() {
+        $.get("../../common/submit_admin_forms.php", {
+            get_all_showtime: ''
+        }, function(data, status) {
+            data = JSON.parse(data);
+            showtimes = data;
+            keys = []
+            for (var k in data) keys.push(k);
+            autocomplete(document.getElementById("showtime_search"), keys);
         });
     }
 
@@ -150,6 +167,15 @@ $(document).ready(function() {
         document.addEventListener("click", function(e) {
             closeAllLists(e.target);
         });
+
+        // Close payment when clicking outside
+        $("body").hover(function(e) {
+            if (e.target.id == "showtime_search") {
+
+            } else {
+                closeAllLists();
+            }
+        });
     }
 
     function set_id_holder(input_value) {
@@ -176,6 +202,14 @@ $(document).ready(function() {
 
             $("#movie_id_entry").text(movies[input_value]);
             $("#movie_name_entry").text(input_value);
+        }
+        if ($("#showtime_call").length) {
+            $('#showtime_id').prop('readonly', false);
+            $('#showtime_id').prop("placeholder", "Showtime ID: " + showtimes[input_value]);
+            $('#showtime_id').prop('readonly', true);
+
+            $("#showtime_id_entry").text(showtimes[input_value]);
+            $("#showtime_name_entry").text(input_value);
         }
     }
 });

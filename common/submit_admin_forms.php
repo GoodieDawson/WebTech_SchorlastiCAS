@@ -3,6 +3,7 @@
 require_once("../db/cinema.php");
 require_once("../db/theatre.php");
 require_once("../db/movie.php");
+require_once("../db/movietime.php");
 
 // Handling POST Requests
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -111,11 +112,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $movie_title = sanitizeData($_POST["movie_title"]);
         $movie_genre = sanitizeData($_POST["movie_genre"]);
         $movie_about = sanitizeData($_POST["movie_about"]);
-        $movie_theatre = sanitizeData($_POST["movie_theatre"]);
+        // $movie_theatre = sanitizeData($_POST["movie_theatre"]);
         $movie_cover = $target_file;
 
         if (isset($_POST["movie_update_post"])){
-            update_movie($_POST["movie_update_post"], $movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover);
+            // update_movie($_POST["movie_update_post"], $movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover);
+            update_movie($_POST["movie_update_post"], $movie_title, $movie_genre, $movie_about, $movie_cover);
 
             $all_alert_messages = "";
 
@@ -126,7 +128,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo ("<script language='javascript'>" . $all_alert_messages . "window.location.href='../admin/update_forms/update_movie.php'; </script>");
         }
         else {
-            add_new_movie($movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover);
+            // add_new_movie($movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover);
+            add_new_movie($movie_title, $movie_genre, $movie_about, $movie_cover);
 
             $all_alert_messages = "";
 
@@ -138,10 +141,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-    elseif (isset($_POST["movie_delete_post"])){
+    // Deleting a Movie
+    elseif (isset($_POST["movie_delete_post"])) {
         $movie_id = $_POST["m_id"];
 
         delete_movie($movie_id);
+    }
+
+    // Adding a ShowTime(MovieTime)
+    elseif (isset($_POST["showtime_post"])) {
+
+        $showtime_movie_id = $_POST["showtime_movie_id"];
+        $showtime = $_POST["showtime"];
+        $showdate_start = $_POST["showdate_start"];
+        $showdate_end = $_POST["showdate_end"];
+        $showtime_theatre = $_POST["showtime_theatre"];
+
+        add_new_showtime($showtime_movie_id, $showtime, $showdate_start, $showdate_end, $showtime_theatre);
+    }
+
+    // Updating a ShowTime(MovieTime)
+    elseif (isset($_POST["showtime_update_post"])) {
+        $showtime_movie_id = $_POST["showtime_movie_id"];
+        $showtime = $_POST["showtime"];
+        $showdate_start = $_POST["showdate_start"];
+        $showdate_end = $_POST["showdate_end"];
+        $showtime_theatre = $_POST["showtime_theatre"];
+
+        update_showtime($_POST["showtime_update_post"], $showtime_movie_id, $showtime, $showdate_start, $showdate_end, $showtime_theatre);
+    }
+
+    // Deleting a ShowTime(MovieTime)
+    elseif (isset($_POST["showtime_delete_post"])) {
+        $showtime_id = $_POST["s_id"];
+
+        delete_showtime($showtime_id);
     }
 }
 
@@ -161,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $movie = new Movie();
         $result = $movie->get_movie($_GET["m_id"]);
         $row = $result->fetch_assoc();
-        $ret_arr = [$row['Movie_Title'], $row['Movie_Genre'], $row['About_Movie'], $row['Theatre_ID']];
+        $ret_arr = [$row['Movie_Title'], $row['Movie_Genre'], $row['About_Movie']];
         echo json_encode($ret_arr);
     }
 
@@ -171,6 +205,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $result = $theatre->get_theatre($_GET["t_id"]);
         $row = $result->fetch_assoc();
         $ret_arr = [$row['Theatre_Name'], $row['Cinema_ID']];
+        echo json_encode($ret_arr);
+    }
+
+    // Loading Showtime(MovieTime) data
+    if (isset($_GET["get_showtime_data"])) {
+        $movietime = new MovieTime();
+        $result = $movietime->get_movie_time($_GET["s_id"]);
+        $row = $result->fetch_assoc();
+        $ret_arr = [$row["Movie_ID"], $row["Movie_Time"], $row["ShowingDate_Start"], $row["ShowingDate_End"],  $row["Theatre_ID"]];
         echo json_encode($ret_arr);
     }
 
@@ -218,6 +261,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         }
         echo json_encode($ret_json);
     }
+
+    // Loading all Showtime(MovieTime)
+    if (isset($_GET["get_all_showtime"])) {
+        $showtime = new MovieTime();
+        $result = $showtime->all_movie_times();
+        $ret_json = [];
+        $i = 0;
+        $movie = new Movie();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $movie_result = $movie->get_movie($row['Movie_ID']);
+                $movie_result_row = $movie_result->fetch_assoc();
+                $ret_json[$movie_result_row["Movie_Title"]." (".$row['Movie_Time'].") : ".$row['ShowingDate_Start']." - ".$row['ShowingDate_End']] = $row["Movie_Time_ID"];
+                $i += 1;
+            }
+        }
+        echo json_encode($ret_json);
+    }
 }
 
 
@@ -231,9 +292,14 @@ function add_new_theatre($theatre_name, $theatre_cinema) {
     echo $theatre->create();
 }
 
-function add_new_movie($movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover){
-    $movie = new Movie($movie_title = $movie_title, $theatre_id = $movie_theatre, $movie_about = $movie_about, $movie_genre = $movie_genre, $movie_cover = $movie_cover);
+function add_new_movie($movie_title, $movie_genre, $movie_about, $movie_cover){
+    $movie = new Movie($movie_title = $movie_title, $movie_about = $movie_about, $movie_genre = $movie_genre, $movie_cover = $movie_cover);
     echo $movie->create();
+}
+
+function add_new_showtime($showtime_movie_id, $showtime, $showdate_start, $showdate_end, $showtime_theatre){
+    $showtime = new MovieTime($movie_id = $showtime_movie_id, $movie_time = $showtime, $showingdate_start = $showdate_start, $showingdate_end = $showdate_end, $theatre_id = $showtime_theatre);
+    echo $showtime->create();
 }
 
 function update_cinema($cinema_id, $cinema_name, $cinema_address, $cinema_telephone, $cinema_email) {
@@ -246,9 +312,14 @@ function update_theatre($theatre_id, $theatre_name, $theatre_cinema) {
     echo $theatre->update($t_id = $theatre_id);
 }
 
-function update_movie($movie_id, $movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover){
-    $movie = new Movie($movie_title = $movie_title, $theatre_id = $movie_theatre, $movie_about = $movie_about, $movie_genre = $movie_genre, $movie_cover = $movie_cover);
+function update_movie($movie_id, $movie_title, $movie_genre, $movie_about, $movie_cover){
+    $movie = new Movie($movie_title = $movie_title, $movie_about = $movie_about, $movie_genre = $movie_genre, $movie_cover = $movie_cover);
     echo $movie->update($m_id = $movie_id);
+}
+
+function update_showtime($movie_time_id, $showtime_movie_id, $showtime, $showdate_start, $showdate_end, $showtime_theatre){
+    $showtime = new MovieTime($movie_id = $showtime_movie_id, $movie_time = $showtime, $showingdate_start = $showdate_start, $showingdate_end = $showdate_end, $theatre_id = $showtime_theatre);
+    echo $showtime->update($movie_time_id);
 }
 
 function delete_cinema($cinema_id){
@@ -264,6 +335,11 @@ function delete_theatre($theatre_id){
 function delete_movie($movie_id){
     $movie = new Movie();
     echo $movie->delete($m_id = $movie_id);
+}
+
+function delete_showtime($showtime_id){
+    $showtime = new MovieTime();
+    echo $showtime->delete($showtime_id);
 }
 
 function sanitizeData($text) {

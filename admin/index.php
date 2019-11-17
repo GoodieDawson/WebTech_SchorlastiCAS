@@ -42,6 +42,10 @@
             <div>
                 <a id="add_a_movie" href="add_forms/add_movie.php"> ADD A MOVIE </a>
             </div>
+            <br/>
+            <div>
+                <a id="add_a_showtime" href="add_forms/add_showtime.php"> ADD A SHOWTIME </a>
+            </div>
         </div>
 
     </div>

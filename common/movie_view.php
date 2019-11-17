@@ -25,6 +25,9 @@
             <h1 style="color: black; font-family: 'Lexend Mega', sans-serif;" class="home">
                 FLICKS
             </h1>
+            <h1 style="color: black; font-family: 'Lexend Mega', sans-serif;" class="home">
+                FLICKS
+            </h1>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <nav>
                 <ul>
@@ -73,13 +76,53 @@
                 $result = $movie->all_movies_by_genre("Drama");
                 
                 if ($result->num_rows > 0) {
-
                     while($row = $result->fetch_assoc()) {
                         echo '<div class="card movie-card"> <img src="'.$row["Movie_Cover"].'"> <div class="card__head" id="'.$row["Movie_ID"].'">'.$row["Movie_Title"].'</div> </div>';
                     }
-
                 }
 
+            ?>
+        </div>
+
+        <br>
+
+        <div class="container">
+            <div class="card">
+                <img src="../img/comedy.png">
+            </div>
+            <?php
+
+                require_once("../db/movie.php");
+
+                $movie = new Movie();
+                $result = $movie->all_movies_by_genre("Comedy");
+                
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div class="card movie-card"> <img src="'.$row["Movie_Cover"].'"> <div class="card__head" id="'.$row["Movie_ID"].'">'.$row["Movie_Title"].'</div> </div>';
+                    }
+                }
+            ?>
+        </div>
+
+        <br>
+
+        <div class="container">
+            <div class="card">
+                <img src="../img/action.png">
+            </div>
+            <?php
+
+                require_once("../db/movie.php");
+
+                $movie = new Movie();
+                $result = $movie->all_movies_by_genre("Action");
+                
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div class="card movie-card"> <img src="'.$row["Movie_Cover"].'"> <div class="card__head" id="'.$row["Movie_ID"].'">'.$row["Movie_Title"].'</div> </div>';
+                    }
+                }
             ?>
         </div>
     </div>

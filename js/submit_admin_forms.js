@@ -50,10 +50,11 @@ $(document).ready(function() {
             c_id: cinema_id,
             get_cinema_data: get_cinema_data
         }, function(data, status) {
-            $("#cinema_name").val(JSON.parse(data)[0]);
-            $("#cinema_address").val(JSON.parse(data)[1]);
-            $("#cinema_telephone").val(JSON.parse(data)[2]);
-            $("#cinema_email").val(JSON.parse(data)[3]);
+            data = JSON.parse(data);
+            $("#cinema_name").val(data[0]);
+            $("#cinema_address").val(data[1]);
+            $("#cinema_telephone").val(data[2]);
+            $("#cinema_email").val(data[3]);
         });
     });
 
@@ -105,7 +106,11 @@ $(document).ready(function() {
             c_id: cinema_id,
             cinema_delete_post: cinema_delete_post
         }, function(data, status) {
-            alert(data);
+            if (data == 1) {
+                alert("Cinema deleted successfully.");
+            } else {
+                alert("Unsuccessful delete.");
+            }
             window.location.reload();
         });
     });
@@ -156,8 +161,9 @@ $(document).ready(function() {
             t_id: theatre_id,
             get_theatre_data: get_theatre_data
         }, function(data, status) {
-            $("#theatre_name").val(JSON.parse(data)[0]);
-            $("#theatre_cinema").val(JSON.parse(data)[1]);
+            data = JSON.parse(data);
+            $("#theatre_name").val(data[0]);
+            $("#theatre_cinema").val(data[1]);
         });
     });
 
@@ -205,7 +211,11 @@ $(document).ready(function() {
             t_id: theatre_id,
             theatre_delete_post: theatre_delete_post
         }, function(data, status) {
-            alert(data);
+            if (data == 1) {
+                alert("Theatre deleted successfully.");
+            } else {
+                alert("Unsuccessful delete.");
+            }
             window.location.reload();
         });
     });
@@ -229,10 +239,10 @@ $(document).ready(function() {
             m_id: movie_id,
             get_movie_data: get_movie_data
         }, function(data, status) {
-            $("#movie_title").val(JSON.parse(data)[0]);
-            $("#movie_genre").val(JSON.parse(data)[1]);
-            $("#movie_about").val(JSON.parse(data)[2]);
-            $("#movie_theatre").val(JSON.parse(data)[3]);
+            data = JSON.parse(data);
+            $("#movie_title").val(data[0]);
+            $("#movie_genre").val(data[1]);
+            $("#movie_about").val(data[2]);
             alert("Select new movie cover!");
         });
     });
@@ -251,7 +261,158 @@ $(document).ready(function() {
             m_id: movie_id,
             movie_delete_post: movie_delete_post
         }, function(data, status) {
-            alert(data);
+            if (data == 1) {
+                alert("Movie deleted successfully.");
+            } else {
+                alert("Unsuccessful delete.");
+            }
+            window.location.reload();
+        });
+    });
+
+    // Adding a movie showTime
+    $("#add_showtime").click(function() {
+        var showtime_movie_id = $("#showtime_movie").val();
+        var showtime = $("#showtime").val();
+        var showdate_start = $("#showdate_start").val();
+        var showdate_end = $("#showdate_end").val();
+        var showtime_theatre = $("#showtime_theatre").val();
+        var showtime_post = $("#showtime_post").val()
+
+        if (showtime_movie_id == "" || showtime == "" || showdate_start == "" || showdate_end == "" || showtime_theatre == "") {
+            alert("empty");
+            return;
+        }
+
+        // Check if date in past
+        var start_date = new Date(showdate_start);
+        var end_date = new Date(showdate_end);
+
+        if (start_date.getTime() > end_date.getTime()) {
+            alert("Showing date ends before it start.");
+            return;
+        }
+
+        $.post("../../common/submit_admin_forms.php", {
+            showtime_movie_id: showtime_movie_id,
+            showtime: showtime,
+            showdate_start: showdate_start,
+            showdate_end: showdate_end,
+            showtime_theatre: showtime_theatre,
+            showtime_post: showtime_post
+        }, function(data, status) {
+            if (data == 1) {
+                alert("Showtime added successfully.");
+            } else {
+                alert("Unsuccessful submission.");
+            }
+
+            $('#add_showtime_form').each(function() {
+                this.reset();
+            });
+        });
+    });
+
+    // Displaying a movie showTime
+    $("#showtime_selection").change(function() {
+        var showtime_selection = $("#showtime_selection");
+        $('#showtime_id').prop('readonly', false);
+        $('#showtime_id').prop("placeholder", "Showtime ID: " + showtime_selection.val());
+        $('#showtime_id').prop('readonly', true);
+        $('#showtime_update_post').val(showtime_selection.val());
+    });
+
+    // Loading a movie showTime
+    $("#get_showtime_data_btn").click(function() {
+
+        var showtime_id = $("#showtime_selection").val();
+        var get_showtime_data = $("#get_showtime_data").val();
+
+        $.get("../../common/submit_admin_forms.php", {
+            s_id: showtime_id,
+            get_showtime_data: get_showtime_data
+        }, function(data, status) {
+            data = JSON.parse(data);
+            $("#showtime_movie").val(data[0]);
+            $("#showtime").val(data[1]);
+            var start_date = new Date(data[2]);
+            var start_date_day = ("0" + start_date.getDate()).slice(-2);
+            var start_date_month = ("0" + (start_date.getMonth() + 1)).slice(-2);
+            var end_date = new Date(data[3]);
+            var end_date_day = ("0" + end_date.getDate()).slice(-2);
+            var end_date_month = ("0" + (end_date.getMonth() + 1)).slice(-2);
+            $("#showdate_start").val(start_date.getFullYear() + "-" + start_date_month + "-" + start_date_day);
+            $("#showdate_end").val(end_date.getFullYear() + "-" + end_date_month + "-" + end_date_day);
+            $("#showtime_theatre").val(data[4]);
+        });
+    });
+
+    // Updating a movie showTime
+    $("#update_showtime").click(function() {
+        var showtime_movie_id = $("#showtime_movie").val();
+        var showtime = $("#showtime").val();
+        var showdate_start = $("#showdate_start").val();
+        var showdate_end = $("#showdate_end").val();
+        var showtime_theatre = $("#showtime_theatre").val();
+        var showtime_update_post = $("#showtime_update_post").val()
+
+        if (showtime_movie_id == "" || showtime == "" || showdate_start == "" || showdate_end == "" || showtime_theatre == "") {
+            alert("empty");
+            return;
+        }
+
+        // Check if date in past
+        var start_date = new Date(showdate_start);
+        var end_date = new Date(showdate_end);
+
+        if (start_date.getTime() > end_date.getTime()) {
+            alert("Showing date ends before it start.");
+            return;
+        }
+
+        $.post("../../common/submit_admin_forms.php", {
+            showtime_movie_id: showtime_movie_id,
+            showtime: showtime,
+            showdate_start: showdate_start,
+            showdate_end: showdate_end,
+            showtime_theatre: showtime_theatre,
+            showtime_update_post: showtime_update_post
+        }, function(data, status) {
+            if (data == 1) {
+                alert("Showtime updated successfully.");
+            } else {
+                alert("Unsuccessful update.");
+            }
+
+            $('#update_showtime_form').each(function() {
+                this.reset();
+            });
+            $("#showtime_id").empty();
+            $("#showtime_selection").empty();
+            window.location.reload();
+        });
+    });
+
+    // Deleting a Theatre
+    $("#delete_showtime").click(function() {
+
+        var showtime_id = $("#showtime_id_entry").text();
+        var showtime_delete_post = $("#showtime_delete_post").val();
+
+        if (showtime_id == "") {
+            return;
+        }
+
+        $.post("../../common/submit_admin_forms.php", {
+            s_id: showtime_id,
+            showtime_delete_post: showtime_delete_post
+        }, function(data, status) {
+
+            if (data == 1) {
+                alert("Showtime deleted successfully.");
+            } else {
+                alert("Unsuccessful delete.");
+            }
             window.location.reload();
         });
     });

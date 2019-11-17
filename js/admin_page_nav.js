@@ -31,4 +31,7 @@ $(".tabs").on("click", "a", function(e) {
 
     $("#add_a_movie").text(current_tab.toUpperCase() + ' A MOVIE');
     $("#add_a_movie").prop('href', current_tab + '_forms/' + current_tab + '_movie.php');
+
+    $("#add_a_showtime").text(current_tab.toUpperCase() + ' A SHOWTIME');
+    $("#add_a_showtime").prop('href', current_tab + '_forms/' + current_tab + '_showtime.php');
 });

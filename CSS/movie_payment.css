@@ -267,3 +267,46 @@
     cursor: pointer;
     /* Add a pointer on hover */
 }
+
+#showtime_select_div {
+    text-align: center;
+}
+
+#showtime_select_div select {
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 34px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 14px;
+    right: 9px;
+    border-radius: 22px;
+    width: 220px;
+    box-sizing: border-box;
+    padding: 0 18px;
+    background-color: #1E282F;
+    color: white;
+    cursor: pointer;
+}
+
+#showtime_select_div select:hover {
+    background-color: transparent;
+    color: white;
+}
+
+#showtime_select_div select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #fff;
+}
+
+#showtime_select_div select option {
+    background-color: #1E282F;
+    color: white;
+    height: 50%;
+    cursor: pointer;
+}
+
+#showtime_select_div select option:hover {
+    height: 34px;
+}

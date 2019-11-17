@@ -44,27 +44,27 @@
                     <textarea name="movie_about" id="movie_about" placeholder="Description" rows="10"></textarea>
                     <!-- <input name="movie_about" id="movie_about" placeholder="About" type="textarea" required /> -->
                 </span>
-                <br />
+                <!-- <br />
                 <span>
                     <select name="movie_theatre" id="movie_theatre" required>
                         <option value="" selected="selected">Select a theatre</option>
                         <?php
-                            require_once("../../db/theatre.php");
-                            // Generate all cinemas
-                            // Make <option> text the cinema_name, and cinema_id the the value
-                            $theatre = new Theatre();
-                            $result = $theatre->all_theatre();
+                            // require_once("../../db/theatre.php");
+                            // // Generate all cinemas
+                            // // Make <option> text the cinema_name, and cinema_id the the value
+                            // $theatre = new Theatre();
+                            // $result = $theatre->all_theatre();
                             
-                            if ($result->num_rows > 0) {
+                            // if ($result->num_rows > 0) {
 
-                                while($row = $result->fetch_assoc()) {
-                                    echo '<option value="'.$row['Theatre_ID'].'">'.$row['Theatre_Name'].'</option>';
-                                }
+                            //     while($row = $result->fetch_assoc()) {
+                            //         echo '<option value="'.$row['Theatre_ID'].'">'.$row['Theatre_Name'].'</option>';
+                            //     }
 
-                            }
+                            // }
                         ?>
                     </select>
-                </span>
+                </span> -->
                 <br />
                 <span>
                     <label for="movie_cover" class="custom-file-upload"><i class="fas fa-upload"></i>Upload Movie Cover</label>

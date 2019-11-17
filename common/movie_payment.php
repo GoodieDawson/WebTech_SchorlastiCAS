@@ -11,23 +11,40 @@
                     // Adding a Cinema
                     if (isset($_POST["movie_id"])) {
                         require_once("../db/movie.php");
+                        require_once("../db/movietime.php");
 
                         $movie = new Movie();
                         $result = $movie->get_movie($_POST["movie_id"]);
                         if ($result->num_rows > 0){
                             $row = $result->fetch_assoc();
                         }
+                        
+                        echo '<div id="showtime_select_div">';
 
                         echo '<img id="movie" src="'.$row["Movie_Cover"].'" alt="Movie img"/>';
 
                         echo '<div id="showing_times"> <h2>'.$row["Movie_Title"].'</h2> </div>';
 
+                        echo '<p>Showing Times</p>';
+
                         //Show Cinema options and change show_time options accordingly
+                        echo '<select name="showtimes" id="showtimes" required>'.
+                             '<option value="" selected="selected">Select a showtime</option>';
+                        $showtime = new MovieTime();
+                        $result = $showtime->all_movie_times_by_movie($_POST["movie_id"]);
+                            
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                echo '<option value="'.$row['Movie_Time_ID'].'">'.$row['Movie_Time'].' : '.explode (" ", $row['ShowingDate_Start'])[0].' - '.explode (" ", $row['ShowingDate_End'])[0].'</option>';
+                            }
+                        }
+
+                        echo '</select>';
+
+                        echo '</div>';
                     }
                 }
             ?>
-
-            <p>Showing Times</p>
 
         </div>
 
