@@ -91,7 +91,26 @@ $(document).ready(function() {
         });
     })
 
-    // Adding a theatre
+    // Deleting a Cinema
+    $("#delete_cinema").click(function() {
+
+        var cinema_id = $("#cinema_id_entry").text();
+        var cinema_delete_post = $("#cinema_delete_post").val();
+
+        if (cinema_id == "") {
+            return;
+        }
+
+        $.post("../../common/submit_admin_forms.php", {
+            c_id: cinema_id,
+            cinema_delete_post: cinema_delete_post
+        }, function(data, status) {
+            alert(data);
+            window.location.reload();
+        });
+    });
+
+    // Adding a Theatre
     $("#add_theatre").click(function() {
 
         var theatre_name = $("#theatre_name").val();
@@ -172,8 +191,26 @@ $(document).ready(function() {
         });
     });
 
-    // $('#movie_selection').selectize();
+    // Deleting a Theatre
+    $("#delete_theatre").click(function() {
 
+        var theatre_id = $("#theatre_id_entry").text();
+        var theatre_delete_post = $("#theatre_delete_post").val();
+
+        if (theatre_id == "") {
+            return;
+        }
+
+        $.post("../../common/submit_admin_forms.php", {
+            t_id: theatre_id,
+            theatre_delete_post: theatre_delete_post
+        }, function(data, status) {
+            alert(data);
+            window.location.reload();
+        });
+    });
+
+    // Displaying movie data
     $("#movie_selection").change(function() {
         var movie_selection = $("#movie_selection");
         $('#movie_id').prop('readonly', false);
@@ -182,6 +219,7 @@ $(document).ready(function() {
         $('#movie_update_post').val(movie_selection.val());
     });
 
+    // Loading movie data
     $("#get_movie_data_btn").click(function() {
 
         var movie_id = $("#movie_selection").val();
@@ -199,4 +237,22 @@ $(document).ready(function() {
         });
     });
 
+    // Deleting a Movie
+    $("#delete_movie").click(function() {
+
+        var movie_id = $("#movie_id_entry").text();
+        var movie_delete_post = $("#movie_delete_post").val();
+
+        if (movie_id == "") {
+            return;
+        }
+
+        $.post("../../common/submit_admin_forms.php", {
+            m_id: movie_id,
+            movie_delete_post: movie_delete_post
+        }, function(data, status) {
+            alert(data);
+            window.location.reload();
+        });
+    });
 });

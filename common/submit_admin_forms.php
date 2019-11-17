@@ -29,6 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         update_cinema($_POST["cinema_update_post"], $cinema_name, $cinema_address, $cinema_telephone, $cinema_email);
     }
 
+    // Deleting a Cinema
+    if (isset($_POST["cinema_delete_post"])) {
+        $cinema_id = $_POST["c_id"];
+
+        delete_cinema($cinema_id);
+    }
+
     // Adding a Theatre
     elseif (isset($_POST["theatre_post"])) {
 
@@ -45,6 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $theatre_cinema = sanitizeData($_POST["t_cinema"]);
 
         update_theatre($_POST["theatre_update_post"], $theatre_name, $theatre_cinema);
+    }
+
+    // Deleting a Theatre
+    elseif (isset($_POST["theatre_delete_post"])){
+        $theatre_id = $_POST["t_id"];
+
+        delete_theatre($theatre_id);
     }
 
     // Adding or Updating a Movie
@@ -123,6 +137,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo ("<script language='javascript'>" . $all_alert_messages . "window.location.href='../admin/add_forms/add_movie.php'; </script>");
         }
     }
+
+    elseif (isset($_POST["movie_delete_post"])){
+        $movie_id = $_POST["m_id"];
+
+        delete_movie($movie_id);
+    }
 }
 
 // Handling GET Requests
@@ -153,6 +173,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $ret_arr = [$row['Theatre_Name'], $row['Cinema_ID']];
         echo json_encode($ret_arr);
     }
+
+    // Loading all Cinema
+    if (isset($_GET["get_all_cinema"])) {
+        $cinema = new Cinema();
+        $result = $cinema->all_cinema();
+        $ret_json = [];
+        $i = 0;
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $ret_json[$row["Cinema_Name"]] = $row["Cinema_ID"];
+                $i += 1;
+            }
+        }
+        echo json_encode($ret_json);
+    }
+
+    // Loading all Theatre
+    if (isset($_GET["get_all_theatre"])) {
+        $theatre = new Theatre();
+        $result = $theatre->all_theatre();
+        $ret_json = [];
+        $i = 0;
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $ret_json[$row["Theatre_Name"]] = $row["Theatre_ID"];
+                $i += 1;
+            }
+        }
+        echo json_encode($ret_json);
+    }
+
+    // Loading all Movie
+    if (isset($_GET["get_all_movie"])) {
+        $movie = new Movie();
+        $result = $movie->all_movies();
+        $ret_json = [];
+        $i = 0;
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $ret_json[$row["Movie_Title"]] = $row["Movie_ID"];
+                $i += 1;
+            }
+        }
+        echo json_encode($ret_json);
+    }
 }
 
 
@@ -173,17 +238,32 @@ function add_new_movie($movie_title, $movie_genre, $movie_about, $movie_theatre,
 
 function update_cinema($cinema_id, $cinema_name, $cinema_address, $cinema_telephone, $cinema_email) {
     $cinema = new Cinema($cinema_name = $cinema_name, $cinema_address = $cinema_address, $cinema_telephone = $cinema_telephone, $cinema_email = $cinema_email);
-    echo $cinema->update($cinema_id);
+    echo $cinema->update($c_id = $cinema_id);
 }
 
 function update_theatre($theatre_id, $theatre_name, $theatre_cinema) {
     $theatre = new Theatre($theatre_name = $theatre_name, $cinema_id = $theatre_cinema);
-    echo $theatre->update($theatre_id);
+    echo $theatre->update($t_id = $theatre_id);
 }
 
 function update_movie($movie_id, $movie_title, $movie_genre, $movie_about, $movie_theatre, $movie_cover){
     $movie = new Movie($movie_title = $movie_title, $theatre_id = $movie_theatre, $movie_about = $movie_about, $movie_genre = $movie_genre, $movie_cover = $movie_cover);
-    echo $movie->update($movie_id);
+    echo $movie->update($m_id = $movie_id);
+}
+
+function delete_cinema($cinema_id){
+    $cinema = new Cinema();
+    echo $cinema->delete($c_id = $cinema_id);
+}
+
+function delete_theatre($theatre_id){
+    $theatre = new Theatre();
+    echo $theatre->delete($t_id = $theatre_id);
+}
+
+function delete_movie($movie_id){
+    $movie = new Movie();
+    echo $movie->delete($m_id = $movie_id);
 }
 
 function sanitizeData($text) {

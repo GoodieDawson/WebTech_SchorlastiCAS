@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/movie_view.js"></script>
     
     <!-- CSS -->
     <link type="text/css" rel="stylesheet" href="../css/movie_view.css">
     <link href="https://fonts.googleapis.com/css?family=Lexend+Mega&display=swap" rel="stylesheet">
         <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link type="text/css" rel="stylesheet" href="../css/movie_payment.css">
     <title>FlickTick - Flicks</title>
 </head>
 
@@ -27,8 +30,6 @@
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="">Profile</a></li>
-                    <!-- <li><a href="">...</a></li>
-                    <li><a href="">...</a></li> -->
                 </ul>
             </nav>
             <label for="nav-toggle" class="nav-toggle-label">
@@ -51,13 +52,10 @@
                 $result = $movie->all_movies_by_genre("Animation");
                 
                 if ($result->num_rows > 0) {
-
                     while($row = $result->fetch_assoc()) {
-                        echo '<div class="card"> <a href=""> <img src="'.$row["Movie_Cover"].'"> </a> <div class="card__head">'.$row["Movie_Title"].'</div> </div>';
+                        echo '<div class="card movie-card"> <img src="'.$row["Movie_Cover"].'"> <div class="card__head" id="'.$row["Movie_ID"].'">'.$row["Movie_Title"].'</div> </div>';
                     }
-
                 }
-
             ?>
         </div>
 
@@ -77,7 +75,7 @@
                 if ($result->num_rows > 0) {
 
                     while($row = $result->fetch_assoc()) {
-                        echo '<div class="card"> <a href=""> <img src="'.$row["Movie_Cover"].'"> </a> <div class="card__head">'.$row["Movie_Title"].'</div> </div>';
+                        echo '<div class="card movie-card"> <img src="'.$row["Movie_Cover"].'"> <div class="card__head" id="'.$row["Movie_ID"].'">'.$row["Movie_Title"].'</div> </div>';
                     }
 
                 }
@@ -85,6 +83,8 @@
             ?>
         </div>
     </div>
+
+    <div id="overlay"></div>
 
 </body>
 

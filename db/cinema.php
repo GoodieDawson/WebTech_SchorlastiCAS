@@ -9,6 +9,7 @@
         private $cinema_email = null;
         private $create_query = "INSERT INTO cinema (Cinema_Name, Cinema_Address, Cinema_Telephone, Cinema_Email) VALUES (?, ?, ?, ?)";
         private $update_query = "UPDATE cinema SET Cinema_Name=?, Cinema_Address=?, Cinema_Telephone=?, Cinema_Email=? WHERE Cinema_ID=?";
+        private $delete_query = "DELETE FROM cinema WHERE Cinema_ID=?";
 
         function __construct($cinema_name='none', $cinema_address='none', $cinema_telephone='none', $cinema_email='none'){
             parent::__construct();
@@ -55,7 +56,7 @@
 
         }
 
-        function update($c_id){
+        function update($c_id = 'none'){
             if ($c_id == 'none'){
                 $c_id = $this->id;
             }
@@ -73,10 +74,22 @@
             }
         }
 
-        function delete(){
-            $queryString = "DELETE FROM cinema WHERE Cinema_ID='$this->id'";
-			
-			return $this->execute_query($queryString);
+        function delete($c_id = 'none'){
+            if ($c_id == 'none'){
+                $c_id = $this->id;
+            }
+            $query_statement = mysqli_prepare($this->connection, $this->delete_query);
+            if ($query_statement) {
+                $query_statement->bind_param("i", $c_id);
+
+                $ret_val = $query_statement->execute();
+                
+                $query_statement->close();
+                return $ret_val;
+            }
+            else {
+                return "Error during cinema delete.";
+            }
         }
     }
     

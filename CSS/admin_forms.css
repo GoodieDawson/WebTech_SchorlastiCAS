@@ -5,23 +5,22 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 html,
 body {
-    background: #2F1E27;
-    background: -webkit-linear-gradient(90deg, #2F1E27 10%, #43343d 90%);
+    /* background: #2F1E27; */
+    background: -webkit-linear-gradient(90deg, #2F1E27 10%, #43343d 90%) !important;
     /* Chrome 10+, Saf5.1+ */
-    background: -moz-linear-gradient(90deg, #2F1E27 10%, #43343d 90%);
+    background: -moz-linear-gradient(90deg, #2F1E27 10%, #43343d 90%) !important;
     /* FF3.6+ */
-    background: -ms-linear-gradient(90deg, #2F1E27 10%, #43343d 90%);
+    background: -ms-linear-gradient(90deg, #2F1E27 10%, #43343d 90%) !important;
     /* IE10 */
-    background: -o-linear-gradient(90deg, #2F1E27 10%, #43343d 90%);
+    background: -o-linear-gradient(90deg, #2F1E27 10%, #43343d 90%) !important;
     /* Opera 11.10+ */
-    background: linear-gradient(90deg, #2F1E27 10%, #43343d 90%);
+    background: linear-gradient(90deg, #2F1E27 10%, #43343d 90%) !important;
     /* W3C */
 }
 
 body {
     counter-reset: section;
     text-align: center;
-    vertical-align: middle;
 }
 
 .back {
@@ -358,4 +357,164 @@ input[type="file"] {
 
 .back polyline {
     transition: all 250ms ease-in-out;
+}
+
+.responsive-table li {
+    border-radius: 3px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.responsive-table .table-header {
+    background-color: #3f1e2f;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.responsive-table .table-row {
+    background-color: #d3b6ca;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table .col-1 {
+    flex-basis: 15%;
+}
+
+.responsive-table .col-2 {
+    flex-basis: 15%;
+}
+
+.responsive-table .col-3 {
+    flex-basis: 15%;
+}
+
+@media all and (max-width: 767px) {
+    .responsive-table .table-header {
+        display: none;
+    }
+    .responsive-table li {
+        display: block;
+    }
+    .responsive-table .col {
+        flex-basis: 100%;
+    }
+    .responsive-table .col {
+        display: flex;
+        padding: 10px 0;
+    }
+    .responsive-table .col:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+    }
+}
+
+.tbl-container {
+    color: white;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'lato', sans-serif;
+}
+
+.centered-div {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.search_form {
+    display: block !important;
+    position: relative;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+    z-index: 5;
+}
+
+.search_form input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.search_form .fa {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 0.5s;
+}
+
+.search_form:hover {
+    width: 200px;
+    cursor: pointer;
+}
+
+.search_form:hover input {
+    display: block;
+}
+
+.search_form:hover .fa {
+    background: #07051a;
+    color: white;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #3f1e2f;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #d3b6ca;
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: #324f69!important;
+    color: #ffffff;
 }

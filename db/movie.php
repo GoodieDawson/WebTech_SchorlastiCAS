@@ -10,6 +10,8 @@
         private $movie_cover = null;
         private $create_query = "INSERT INTO movie (Movie_Title, Movie_Genre, Theatre_ID, About_Movie, Movie_Cover) VALUES(?, ?, ?, ?, ?)";
         private $update_query = "UPDATE movie SET Movie_Title=?, Movie_Genre=?, Theatre_ID=?, About_Movie=?, Movie_Cover=? WHERE Movie_ID=?";
+        private $delete_query = "DELETE FROM movie WHERE Movie_ID=?";
+
 
         function __construct($movie_title='none', $theatre_id='none', $movie_about = 'none', $movie_genre = 'none', $movie_cover = 'none'){
             parent::__construct();
@@ -82,10 +84,22 @@
             }
         }
 
-        function delete(){
-            $queryString = "DELETE FROM movie WHERE Movie_ID='$this->id'";
-			
-			return $this->execute_query($queryString);
+        function delete($m_id = 'none'){
+            if ($m_id == 'none'){
+                $m_id = $this->id;
+            }
+            $query_statement = mysqli_prepare($this->connection, $this->delete_query);
+            if ($query_statement) {
+                $query_statement->bind_param("i", $m_id);
+
+                $ret_val = $query_statement->execute();
+                
+                $query_statement->close();
+                return $ret_val;
+            }
+            else {
+                return "Error during movie update.";
+            }
         }
     }
     
