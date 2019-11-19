@@ -28,12 +28,16 @@ if (isset($_POST["submit"])) {
     $result = $user->get_user();
 
     if ($result == 0) {
-        echo "login failed";
+        echo "<script>
+        alert('Login Failed: Please try again. If you do not have an account please click Sign Up');
+        window.location.href='login.php';
+        </script>";
 
         
     } else {
         
         $_SESSION["user_name"] = $user_name;
+        $_SESSION["user_password"] = $user_password;
         header('Location: movie_view.php');
         exit();
         
