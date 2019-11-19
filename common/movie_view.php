@@ -143,8 +143,6 @@ session_start();
             var user_div = document.getElementById("user_div");
             var user_info = document.getElementById("user_info");
 
-            alert("<?php echo $_SESSION['user_name']; ?>")
-
             if ("<?php echo $_SESSION['user_name']; ?>") {
                 user_info.innerHTML = "Welcome " + "<?php echo $_SESSION['user_name']; ?>";
             }
