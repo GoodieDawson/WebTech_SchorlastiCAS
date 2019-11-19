@@ -7,7 +7,7 @@ $(document).ready(function() {
         $("#overlay").load("../common/movie_payment.php", {
             movie_id: movie_id
         }, function(data, status) {
-            document.getElementById("overlay").style.display = "block";
+            on();
         });
     });
 
@@ -20,12 +20,18 @@ $(document).ready(function() {
         }
     });
 
+    $("#showtimes").on('change', function() {
+        alert("this.value");
+    });
+
     function on() {
         document.getElementById("overlay").style.display = "block";
+        // document.getElementById("overlay-blur").style.display = "block";
     }
 
     function off() {
         document.getElementById("overlay").style.display = "none";
+        // document.getElementById("overlay-blur").style.display = "none";
     }
 
 });

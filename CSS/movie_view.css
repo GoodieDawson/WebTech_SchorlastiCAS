@@ -137,8 +137,7 @@ div .container {
 }
 
 .container .card .card__head {
-    color: black;
-    background: rgba(49, 24, 40, 0.75);
+    color: rgba(220, 220, 220, 0.644);
     padding: 0.5em;
     transition: all 0.5s ease-in-out;
     min-width: 100%;
@@ -146,6 +145,8 @@ div .container {
     position: absolute;
     font-size: 1em;
     white-space: nowrap;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 .container .card .card__info {
@@ -154,7 +155,7 @@ div .container {
     visibility: hidden;
     transition: opacity .6s, visibility .6s;
     transition-delay: 0.9s;
-    background: rgba(49, 24, 40, 0.75);
+    /* background: rgba(49, 24, 40, 0.75); */
     min-width: 100%;
     text-align: center;
     position: absolute;

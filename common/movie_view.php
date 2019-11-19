@@ -135,6 +135,7 @@ session_start();
         </div>
     </div>
 
+    <!-- <div id="overlay-blur"></div> -->
     <div id="overlay"></div>
 
     <script type="text/javascript">

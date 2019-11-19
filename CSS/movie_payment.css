@@ -40,27 +40,41 @@
     -ms-border-radius: 5px;
     border-radius: 5px;
     overflow: hidden;
-    background: #b3bead;
-    background: -moz-linear-gradient(45deg, #7f87ac 0%, #5674ad 60%, #0c2e9e 100%);
-    background: -webkit-linear-gradient(45deg, #b3bead 0%, #dfe5d7 60%, #fcfff4 100%);
-    background: linear-gradient(45deg, #b3bead 0%, #dfe5d7 60%, #fcfff4 100%);
+    /* background: #355C7D; */
+    background: -moz-linear-gradient(45deg, #355C7D 0%, #6C5B7B 60%, #C06C84 100%);
+    background: -webkit-linear-gradient(45deg, #355C7D 0%, #6C5B7B 60%, #C06C84 100%);
+    background: linear-gradient(45deg, #355C7D 0%, #6C5B7B 60%, #C06C84 100%);
+    /* background: -moz-linear-gradient(45deg, #000 10%, #355C7D 90%);
+    background: -webkit-linear-gradient(45deg, #000 10%, #355C7D 90%); */
+    /* background: linear-gradient(90deg, #000 10%, #355C7D 90%); */
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 #info {
     width: 52%;
     height: 480px;
     float: left;
+    /* background: black; */
+    /* background: linear-gradient(45deg, #355C7D 10%, #000 90%); */
     background: -moz-linear-gradient(45deg, #95a5a6 0%, rgba(208, 215, 216, 0) 56%, rgba(255, 255, 255, 0) 100%);
     background: -webkit-linear-gradient(45deg, #95a5a6 0%, rgba(208, 215, 216, 0) 56%, rgba(255, 255, 255, 0) 100%);
     background: linear-gradient(45deg, #95a5a6 0%, rgba(208, 215, 216, 0) 56%, rgba(255, 255, 255, 0) 100%);
+    /* background: -moz-linear-gradient(45deg, #000 20%, #fff 90%);
+    background: -webkit-linear-gradient(45deg, #000 20%, #fff 90%);
+    background: linear-gradient(45deg, #000 20%, #fff 90%); */
+}
+
+#info #img-div {
+    max-height: 50%;
 }
 
 #info #movie {
     max-width: 100%;
-    max-height: 100%;
+    /* max-height: 100%;
     object-fit: contain;
-    /* height: auto; */
-    /* margin: -50px 0 -85px -65px; */
+    height: auto; */
 }
 
 #info p {
@@ -68,12 +82,14 @@
     text-align: center;
     line-height: 1.5em;
     letter-spacing: 1px;
+    color: white;
 }
 
 #info #showing_times {
     width: 80%;
     margin: 0 auto;
     letter-spacing: 1px;
+    z-index: 7;
 }
 
 #info #showing_times h2 {
@@ -82,9 +98,11 @@
     font-weight: 700;
     color: #000;
     padding-top: 10px;
+    color: white;
 }
 
 #payment {
+    color: white;
     width: 40%;
     float: right;
     padding: 95px 50px 25px 0;
@@ -262,14 +280,18 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     /* Black background with opacity */
-    z-index: 6;
+    z-index: 7;
     /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
     /* Add a pointer on hover */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 #showtime_select_div {
     text-align: center;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 #showtime_select_div select {

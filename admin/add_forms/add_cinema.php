@@ -39,7 +39,7 @@
                 </span>
                 <br />
                 <span>
-                    <input name="cinema_telephone" id="cinema_telephone" placeholder="Telephone" type="text" required />
+                    <input name="cinema_telephone" id="cinema_telephone" placeholder="Telephone" type="tel" required />
                 </span>
                 <br />
                 <span>

@@ -18,10 +18,10 @@
                         if ($result->num_rows > 0){
                             $row = $result->fetch_assoc();
                         }
+
+                        echo '<div id="img-div"><img id="movie" src="'.$row["Movie_Cover"].'" alt="Movie img"/> </div>';
                         
                         echo '<div id="showtime_select_div">';
-
-                        echo '<img id="movie" src="'.$row["Movie_Cover"].'" alt="Movie img"/>';
 
                         echo '<div id="showing_times"> <h2>'.$row["Movie_Title"].'</h2> </div>';
 
