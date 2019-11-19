@@ -32,7 +32,7 @@ session_start();
                 FLICKS
             </h1>
             <div id="user_div" style="display: inline-block; float: right;">
-                <i class="fas fa-user prefix black-text active"></i>
+                <i class="fas fa-user prefix black-text active" style="display: none;" id="login_icon"></i>
                 <h3 id="user_info"></h3>
             </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -40,7 +40,7 @@ session_start();
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="">Profile</a></li>
-                    <li><a href="logout_check.php">Log Out</a></li>
+                    <li style="display: none;" id="logout_icon"><a href="logout_check.php">Log Out</a></li>
                 </ul>
             </nav>
             <label for="nav-toggle" class="nav-toggle-label">
@@ -144,10 +144,10 @@ session_start();
             var user_div = document.getElementById("user_div");
             var user_info = document.getElementById("user_info");
 
-            alert("<?php echo $_SESSION['user_name']; ?>")
-
             if ("<?php echo $_SESSION['user_name']; ?>") {
                 user_info.innerHTML = "Welcome " + "<?php echo $_SESSION['user_name']; ?>";
+                document.getElementById("login_icon").style.display = "inline-block";
+                document.getElementById("logout_icon").style.display = "inline-block";
             }
         }
         
