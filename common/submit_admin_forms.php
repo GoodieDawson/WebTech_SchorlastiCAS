@@ -1,12 +1,24 @@
 <?php
 
+session_start();
+
 require_once("../db/cinema.php");
 require_once("../db/theatre.php");
 require_once("../db/movie.php");
 require_once("../db/movietime.php");
+require_once("../db/admin.php");
 
 // Handling POST Requests
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    // Check if admin exists
+    if (isset($_POST["admin_name"])) {
+
+        $admin_name = sanitizeData($_POST["admin_name"]);
+        $admin_pass = md5(sanitizeData($_POST["admin_password"]));
+
+        find_admin($admin_name, $admin_pass);
+    }
 
     // Adding a Cinema
     if (isset($_POST["cinema_post"])) {
@@ -340,6 +352,21 @@ function delete_movie($movie_id){
 function delete_showtime($showtime_id){
     $showtime = new MovieTime();
     echo $showtime->delete($showtime_id);
+}
+
+function find_admin($admin_name, $admin_pass){
+    $admin = new Admin();
+    $result = $admin->get_admin($admin_name, $admin_pass);
+
+    if ($result == "Error during selection" || $result == 0){
+        header("Location: ../admin/index.php");
+    }
+    else {
+        $_SESSION['admin_logged_in'] = 1;
+        $_SESSION['admin_name'] = $admin_name;
+        header("Location: ../admin/index.php");
+        exit();
+    }
 }
 
 function sanitizeData($text) {
