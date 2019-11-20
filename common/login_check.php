@@ -37,7 +37,6 @@ if (isset($_POST["submit"])) {
     } else {
         
         $_SESSION["user_name"] = $user_name;
-        $_SESSION["user_password"] = $user_password;
         header('Location: movie_view.php');
         exit();
         
