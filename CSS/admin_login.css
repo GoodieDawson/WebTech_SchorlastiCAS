@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(220, 36, 36, 0.514), rgba(74, 86, 157, 0.493));
+    background: linear-gradient(45deg, rgb(220, 36, 36), rgb(74, 86, 157));
     /* Black background with opacity */
     z-index: 100;
     /* Specify a stack order in case you're using a different order for other elements */
