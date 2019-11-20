@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +33,7 @@
     </script>
 </head>
 
-<body
+<body 
     style="background-attachment: fixed; background-image: url(../img/Backgrounds/road_marking_bridge_123398_1280x720.jpg); background-repeat: no-repeat; background-size: cover">
     <header>
         <!-- Navbar -->
@@ -92,6 +98,7 @@
                                         <label for="form2">Password</label>
                                     </div>
                                     <div id="message">
+                                        <span>Password Strength:</span>
                                         <div id="weak">
                                         </div>
                                         <div id="medium">
@@ -180,6 +187,7 @@
     </header>
 
     <script type="text/javascript">
+
     var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 
@@ -217,6 +225,18 @@
         }
 
     }
+
+
+    </script>
+
+    <script type="text/javascript">
+        
+        if("<?php echo $_SESSION['register_success']; ?>") {
+            alert("Registration Succesful");
+            <?php unset($_SESSION['register_success']); ?>
+        }
+        
+
     </script>
 
 </body>
