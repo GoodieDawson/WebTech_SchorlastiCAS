@@ -426,6 +426,12 @@ session_start();
 
     <script>
 
+    if ("<?php echo $_SESSION['register_success']; ?>") {
+        <?php unset($_SESSION['register_success']); ?>
+       alert("Registration Succesful");
+       window.location.href = 'login.php';
+    }
+
     </script>
 
 </body>
