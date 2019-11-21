@@ -1,12 +1,5 @@
-drop database if exists TS2021;
 
-#Creating the database.
-
-create database TS2021;
-
-#Using the database.
-
-use TS2021;
+use webtech_fall2019_;
 
 #Creating the entities or tables of the database.
 
@@ -66,16 +59,6 @@ User_ID int (8),
 primary key (Ticket_ID),
 foreign key (User_ID) references User (User_ID),
 foreign key (Movie_Time_ID) references Movie_Time (Movie_Time_ID));
-
-drop database if exists TS2021_admin;
-
-#Creating the database.
-
-create database TS2021_admin;
-
-#Using the database.
-
-use TS2021_admin;
 
 create table Administrator (
 Administrator_ID int (8) not null auto_increment, 
